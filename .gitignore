@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# API Keys - IMPORTANT!
+*.key
+*.pem
+config.py
+secrets.py
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Media files (too large for GitHub)
+*.mp4
+*.avi
+*.mov
+*.jpg
+*.jpeg
+*.png
+!test_images/placeholder.txt
+!demo_videos/placeholder.txt
+
+# Generated files
+demo_current_grid.jpg
+test_grid.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
