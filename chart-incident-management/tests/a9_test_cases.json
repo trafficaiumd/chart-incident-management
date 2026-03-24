@@ -1,0 +1,1944 @@
+{
+  "cases": [
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_022000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_022000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_101000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_101000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_182000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "crash",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": [
+            1,
+            2
+          ]
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": true
+        },
+        "traffic": {
+          "state": "stopped"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_182000000_s040_camera_basler_north_16mm",
+      "critical_rules": [
+        "crash_detection"
+      ]
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_262000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_262000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_342000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_342000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_421000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_421000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_501000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_501000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_581000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_581000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_661000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_661000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_742000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_742000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_821000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_821000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_902000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_902000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874306_982000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874306_982000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_062000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_062000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_141000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_141000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_221000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_221000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_302000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_302000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_381000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_381000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_462000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_462000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_16mm/1617874307_542000000_s040_camera_basler_north_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_16mm frame 1617874307_542000000_s040_camera_basler_north_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_083000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_083000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_162000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "crash",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": [
+            1,
+            2
+          ]
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": true
+        },
+        "traffic": {
+          "state": "stopped"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_162000000_s040_camera_basler_north_50mm",
+      "critical_rules": [
+        "crash_detection"
+      ]
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_243000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_243000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_323000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_323000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_403000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_403000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_483000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_483000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_563000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_563000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_643000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_643000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_723000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_723000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_803000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_803000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_883000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_883000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874306_963000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874306_963000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_043000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_043000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_123000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_123000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_203000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_203000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_283000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_283000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_363000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_363000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_443000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_443000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_523000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_523000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s40_north_50mm/1617874307_603000000_s040_camera_basler_north_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s40_north_50mm frame 1617874307_603000000_s040_camera_basler_north_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_025000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_025000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_105000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_105000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_186000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "crash",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": [
+            1,
+            2
+          ]
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": true
+        },
+        "traffic": {
+          "state": "stopped"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_186000000_s050_camera_basler_south_16mm",
+      "critical_rules": [
+        "crash_detection"
+      ]
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_265000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_265000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_346000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_346000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_426000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_426000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_506000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_506000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_586000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_586000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_665000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_665000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_745000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_745000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_826000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_826000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_906000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_906000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874306_985000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874306_985000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_066000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_066000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_146000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_146000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_226000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_226000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_306000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_306000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_386000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_386000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_466000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_466000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_16mm/1617874307_546000000_s050_camera_basler_south_16mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_16mm frame 1617874307_546000000_s050_camera_basler_south_16mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_020000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_020000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_100000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_100000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_180000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "crash",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": [
+            1,
+            2
+          ]
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": true
+        },
+        "traffic": {
+          "state": "stopped"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_180000000_s050_camera_basler_south_50mm",
+      "critical_rules": [
+        "crash_detection"
+      ]
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_260000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_260000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_340000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_340000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_420000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_420000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_500000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_500000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_580000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_580000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_660000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_660000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_740000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_740000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_819000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_819000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_900000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_900000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874306_980000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874306_980000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_060000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_060000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_139000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_139000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_219000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_219000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_299000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_299000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_380000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_380000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_460000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_460000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/a9/r00_s00/s50_south_50mm/1617874307_539000000_s050_camera_basler_south_50mm.png",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 0,
+          "types": []
+        },
+        "lanes": {
+          "total": 3,
+          "blocked": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false
+        },
+        "traffic": {
+          "state": "flowing"
+        }
+      },
+      "description": "A9 r00_s00 s50_south_50mm frame 1617874307_539000000_s050_camera_basler_south_50mm",
+      "critical_rules": []
+    }
+  ]
+}

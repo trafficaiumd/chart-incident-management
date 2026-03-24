@@ -1,0 +1,2998 @@
+{
+    "image_file_name": "1617874313_043000000_s040_camera_basler_north_50mm.jpg",
+    "labels": [
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "0a4bcf42-a51e-4c45-bb64-5ec6172afffd",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.433326,
+                    0.480788
+                ],
+                "bottom_left_back": [
+                    0.429272,
+                    0.469209
+                ],
+                "bottom_right_back": [
+                    0.481713,
+                    0.469209
+                ],
+                "bottom_right_front": [
+                    0.490549,
+                    0.480788
+                ],
+                "top_left_front": [
+                    0.433326,
+                    0.40548
+                ],
+                "top_left_back": [
+                    0.429272,
+                    0.400194
+                ],
+                "top_right_back": [
+                    0.481713,
+                    0.400194
+                ],
+                "top_right_front": [
+                    0.490549,
+                    0.40548
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "c2c7b874-9fd6-42e7-85ea-59335bfae5a9",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.814809,
+                    0.457197
+                ],
+                "bottom_left_back": [
+                    0.799063,
+                    0.443508
+                ],
+                "bottom_right_back": [
+                    0.846281,
+                    0.443508
+                ],
+                "bottom_right_front": [
+                    0.866039,
+                    0.457197
+                ],
+                "top_left_front": [
+                    0.814809,
+                    0.387075
+                ],
+                "top_left_back": [
+                    0.799063,
+                    0.378877
+                ],
+                "top_right_back": [
+                    0.846281,
+                    0.378877
+                ],
+                "top_right_front": [
+                    0.866039,
+                    0.387075
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "757889a4-e296-44e6-9db8-e193d3c402e0",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.905695,
+                    0.335552
+                ],
+                "bottom_left_back": [
+                    0.869297,
+                    0.313329
+                ],
+                "bottom_right_back": [
+                    0.924411,
+                    0.313329
+                ],
+                "bottom_right_front": [
+                    0.967002,
+                    0.335552
+                ],
+                "top_left_front": [
+                    0.905695,
+                    0.188023
+                ],
+                "top_left_back": [
+                    0.869297,
+                    0.180704
+                ],
+                "top_right_back": [
+                    0.924411,
+                    0.180704
+                ],
+                "top_right_front": [
+                    0.967002,
+                    0.188023
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Red"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "435ca481-8ac5-49c7-9282-a7cbc0482106",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.23516,
+                    0.147716
+                ],
+                "bottom_left_back": [
+                    0.257086,
+                    0.142735
+                ],
+                "bottom_right_back": [
+                    0.237366,
+                    0.142735
+                ],
+                "bottom_right_front": [
+                    0.256823,
+                    0.147716
+                ],
+                "top_left_front": [
+                    0.23516,
+                    0.104134
+                ],
+                "top_left_back": [
+                    0.257086,
+                    0.103062
+                ],
+                "top_right_back": [
+                    0.237366,
+                    0.103062
+                ],
+                "top_right_front": [
+                    0.256823,
+                    0.104134
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "MOSTLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "f3916396-6beb-4fbe-9382-58cb56bf52a1",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.182488,
+                    0.233213
+                ],
+                "bottom_left_back": [
+                    0.221997,
+                    0.216887
+                ],
+                "bottom_right_back": [
+                    0.190363,
+                    0.216887
+                ],
+                "bottom_right_front": [
+                    0.218077,
+                    0.233213
+                ],
+                "top_left_front": [
+                    0.182488,
+                    0.144821
+                ],
+                "top_left_back": [
+                    0.221997,
+                    0.138317
+                ],
+                "top_right_back": [
+                    0.190363,
+                    0.138317
+                ],
+                "top_right_front": [
+                    0.218077,
+                    0.144821
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "4b427850-f27b-4312-a53b-5bc647dc97d8",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.484871,
+                    0.148529
+                ],
+                "bottom_left_back": [
+                    0.482045,
+                    0.146677
+                ],
+                "bottom_right_back": [
+                    0.497957,
+                    0.146677
+                ],
+                "bottom_right_front": [
+                    0.500845,
+                    0.148529
+                ],
+                "top_left_front": [
+                    0.484871,
+                    0.11734
+                ],
+                "top_left_back": [
+                    0.482045,
+                    0.115609
+                ],
+                "top_right_back": [
+                    0.497957,
+                    0.115609
+                ],
+                "top_right_front": [
+                    0.500845,
+                    0.11734
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "c170f2d8-2bb0-4e3a-840e-9fd74b215da0",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.192946,
+                    0.294168
+                ],
+                "bottom_left_back": [
+                    0.218324,
+                    0.287054
+                ],
+                "bottom_right_back": [
+                    0.193763,
+                    0.287054
+                ],
+                "bottom_right_front": [
+                    0.217117,
+                    0.294168
+                ],
+                "top_left_front": [
+                    0.192946,
+                    0.255974
+                ],
+                "top_left_back": [
+                    0.218324,
+                    0.248244
+                ],
+                "top_right_back": [
+                    0.193763,
+                    0.248244
+                ],
+                "top_right_front": [
+                    0.217117,
+                    0.255974
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "MOSTLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "7207b2f2-52e2-4f7e-a7f3-0be03255a2b7",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.623859,
+                    0.199103
+                ],
+                "bottom_left_back": [
+                    0.611417,
+                    0.192629
+                ],
+                "bottom_right_back": [
+                    0.634311,
+                    0.192629
+                ],
+                "bottom_right_front": [
+                    0.64799,
+                    0.199103
+                ],
+                "top_left_front": [
+                    0.623859,
+                    0.124749
+                ],
+                "top_left_back": [
+                    0.611417,
+                    0.122085
+                ],
+                "top_right_back": [
+                    0.634311,
+                    0.122085
+                ],
+                "top_right_front": [
+                    0.64799,
+                    0.124749
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "3ebb608f-a1f8-4ea0-9d7a-cfb2bc47f843",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.743676,
+                    0.291754
+                ],
+                "bottom_left_back": [
+                    0.735479,
+                    0.28754
+                ],
+                "bottom_right_back": [
+                    0.767376,
+                    0.28754
+                ],
+                "bottom_right_front": [
+                    0.776088,
+                    0.291754
+                ],
+                "top_left_front": [
+                    0.743676,
+                    0.247702
+                ],
+                "top_left_back": [
+                    0.735479,
+                    0.244188
+                ],
+                "top_right_back": [
+                    0.767376,
+                    0.244188
+                ],
+                "top_right_front": [
+                    0.776088,
+                    0.247702
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Green"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "7caf741c-426d-4845-ba37-4604e1a2b6df",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.494003,
+                    0.157892
+                ],
+                "bottom_left_back": [
+                    0.491427,
+                    0.155006
+                ],
+                "bottom_right_back": [
+                    0.506691,
+                    0.155006
+                ],
+                "bottom_right_front": [
+                    0.509902,
+                    0.157892
+                ],
+                "top_left_front": [
+                    0.494003,
+                    0.131091
+                ],
+                "top_left_back": [
+                    0.491427,
+                    0.129276
+                ],
+                "top_right_back": [
+                    0.506691,
+                    0.129276
+                ],
+                "top_right_front": [
+                    0.509902,
+                    0.131091
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "183c836b-f28a-4b6b-b15a-9c409c8933cb",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.516519,
+                    0.19151
+                ],
+                "bottom_left_back": [
+                    0.514674,
+                    0.188966
+                ],
+                "bottom_right_back": [
+                    0.53257,
+                    0.188966
+                ],
+                "bottom_right_front": [
+                    0.534304,
+                    0.19151
+                ],
+                "top_left_front": [
+                    0.516519,
+                    0.167069
+                ],
+                "top_left_back": [
+                    0.514674,
+                    0.164372
+                ],
+                "top_right_back": [
+                    0.53257,
+                    0.164372
+                ],
+                "top_right_front": [
+                    0.534304,
+                    0.167069
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "2b751e74-dba4-40be-9c14-b5964aa3df48",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.252501,
+                    0.18791
+                ],
+                "bottom_left_back": [
+                    0.27273,
+                    0.184055
+                ],
+                "bottom_right_back": [
+                    0.255206,
+                    0.184055
+                ],
+                "bottom_right_front": [
+                    0.271036,
+                    0.18791
+                ],
+                "top_left_front": [
+                    0.252501,
+                    0.164897
+                ],
+                "top_left_back": [
+                    0.27273,
+                    0.162297
+                ],
+                "top_right_back": [
+                    0.255206,
+                    0.162297
+                ],
+                "top_right_front": [
+                    0.271036,
+                    0.164897
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "48149be0-1d8a-467d-8da7-dd7f04c203cd",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.335387,
+                    0.723141
+                ],
+                "bottom_left_back": [
+                    0.332554,
+                    0.639134
+                ],
+                "bottom_right_back": [
+                    0.412028,
+                    0.639134
+                ],
+                "bottom_right_front": [
+                    0.438744,
+                    0.723141
+                ],
+                "top_left_front": [
+                    0.335387,
+                    0.551582
+                ],
+                "top_left_back": [
+                    0.332554,
+                    0.507217
+                ],
+                "top_right_back": [
+                    0.412028,
+                    0.507217
+                ],
+                "top_right_front": [
+                    0.438744,
+                    0.551582
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "7594c00e-499a-4cc7-a986-665549940e3d",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.834785,
+                    0.251786
+                ],
+                "bottom_left_back": [
+                    0.805884,
+                    0.240184
+                ],
+                "bottom_right_back": [
+                    0.845698,
+                    0.240184
+                ],
+                "bottom_right_front": [
+                    0.877269,
+                    0.251786
+                ],
+                "top_left_front": [
+                    0.834785,
+                    0.14867
+                ],
+                "top_left_back": [
+                    0.805884,
+                    0.143548
+                ],
+                "top_right_back": [
+                    0.845698,
+                    0.143548
+                ],
+                "top_right_front": [
+                    0.877269,
+                    0.14867
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "aef4cd65-4df2-4c1f-ae78-c0efaf9e1a87",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.298082,
+                    0.20217
+                ],
+                "bottom_left_back": [
+                    0.296529,
+                    0.199329
+                ],
+                "bottom_right_back": [
+                    0.318006,
+                    0.199329
+                ],
+                "bottom_right_front": [
+                    0.31998,
+                    0.20217
+                ],
+                "top_left_front": [
+                    0.298082,
+                    0.164274
+                ],
+                "top_left_back": [
+                    0.296529,
+                    0.162161
+                ],
+                "top_right_back": [
+                    0.318006,
+                    0.162161
+                ],
+                "top_right_front": [
+                    0.31998,
+                    0.164274
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "6680692d-6487-4d46-bade-11d38ac67584",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.254506,
+                    0.130083
+                ],
+                "bottom_left_back": [
+                    0.254861,
+                    0.121185
+                ],
+                "bottom_right_back": [
+                    0.274888,
+                    0.121185
+                ],
+                "bottom_right_front": [
+                    0.274842,
+                    0.130083
+                ],
+                "top_left_front": [
+                    0.254506,
+                    0.096314
+                ],
+                "top_left_back": [
+                    0.254861,
+                    0.087929
+                ],
+                "top_right_back": [
+                    0.274888,
+                    0.087929
+                ],
+                "top_right_front": [
+                    0.274842,
+                    0.096314
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Red"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "aa17cf54-f34c-4904-a7c2-9559fce6aa48",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.816292,
+                    0.21315
+                ],
+                "bottom_left_back": [
+                    0.795189,
+                    0.213053
+                ],
+                "bottom_right_back": [
+                    0.811681,
+                    0.213053
+                ],
+                "bottom_right_front": [
+                    0.832606,
+                    0.21315
+                ],
+                "top_left_front": [
+                    0.816292,
+                    0.16167
+                ],
+                "top_left_back": [
+                    0.795189,
+                    0.161011
+                ],
+                "top_right_back": [
+                    0.811681,
+                    0.161011
+                ],
+                "top_right_front": [
+                    0.832606,
+                    0.16167
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "1f51c282-0fa3-4807-849c-ba4c1f1c8a08",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.458,
+                    0.152257
+                ],
+                "bottom_left_back": [
+                    0.455688,
+                    0.151207
+                ],
+                "bottom_right_back": [
+                    0.470031,
+                    0.151207
+                ],
+                "bottom_right_front": [
+                    0.472492,
+                    0.152257
+                ],
+                "top_left_front": [
+                    0.458,
+                    0.132769
+                ],
+                "top_left_back": [
+                    0.455688,
+                    0.131919
+                ],
+                "top_right_back": [
+                    0.470031,
+                    0.131919
+                ],
+                "top_right_front": [
+                    0.472492,
+                    0.132769
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "6005b8d2-6438-4b8c-9478-bb4229ec3229",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.445905,
+                    0.143765
+                ],
+                "bottom_left_back": [
+                    0.445135,
+                    0.142884
+                ],
+                "bottom_right_back": [
+                    0.459378,
+                    0.142884
+                ],
+                "bottom_right_front": [
+                    0.45986,
+                    0.143765
+                ],
+                "top_left_front": [
+                    0.445905,
+                    0.126227
+                ],
+                "top_left_back": [
+                    0.445135,
+                    0.124984
+                ],
+                "top_right_back": [
+                    0.459378,
+                    0.124984
+                ],
+                "top_right_front": [
+                    0.45986,
+                    0.126227
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "MOSTLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "a8ccefa3-ebee-43cc-83fa-aef717037648",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.194317,
+                    0.192488
+                ],
+                "bottom_left_back": [
+                    0.220519,
+                    0.186475
+                ],
+                "bottom_right_back": [
+                    0.196672,
+                    0.186475
+                ],
+                "bottom_right_front": [
+                    0.219015,
+                    0.192488
+                ],
+                "top_left_front": [
+                    0.194317,
+                    0.132696
+                ],
+                "top_left_back": [
+                    0.220519,
+                    0.128744
+                ],
+                "top_right_back": [
+                    0.196672,
+                    0.128744
+                ],
+                "top_right_front": [
+                    0.219015,
+                    0.132696
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "MOSTLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "c8bfb58e-260c-4e77-935a-6a22795fabc4",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.211953,
+                    0.162221
+                ],
+                "bottom_left_back": [
+                    0.237698,
+                    0.159222
+                ],
+                "bottom_right_back": [
+                    0.213747,
+                    0.159222
+                ],
+                "bottom_right_front": [
+                    0.236302,
+                    0.162221
+                ],
+                "top_left_front": [
+                    0.211953,
+                    0.1099
+                ],
+                "top_left_back": [
+                    0.237698,
+                    0.107756
+                ],
+                "top_right_back": [
+                    0.213747,
+                    0.107756
+                ],
+                "top_right_front": [
+                    0.236302,
+                    0.1099
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "9eb99867-e03b-4d92-8260-5c6fa19ec486",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.405878,
+                    0.107903
+                ],
+                "bottom_left_back": [
+                    0.404012,
+                    0.105392
+                ],
+                "bottom_right_back": [
+                    0.418023,
+                    0.105392
+                ],
+                "bottom_right_front": [
+                    0.420548,
+                    0.107903
+                ],
+                "top_left_front": [
+                    0.405878,
+                    0.076202
+                ],
+                "top_left_back": [
+                    0.404012,
+                    0.075114
+                ],
+                "top_right_back": [
+                    0.418023,
+                    0.075114
+                ],
+                "top_right_front": [
+                    0.420548,
+                    0.076202
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "0930624d-60e4-4cd7-bfda-56d204dc12c6",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.656083,
+                    0.280025
+                ],
+                "bottom_left_back": [
+                    0.651362,
+                    0.271091
+                ],
+                "bottom_right_back": [
+                    0.675744,
+                    0.271091
+                ],
+                "bottom_right_front": [
+                    0.683465,
+                    0.280025
+                ],
+                "top_left_front": [
+                    0.656083,
+                    0.239459
+                ],
+                "top_left_back": [
+                    0.651362,
+                    0.23497
+                ],
+                "top_right_back": [
+                    0.675744,
+                    0.23497
+                ],
+                "top_right_front": [
+                    0.683465,
+                    0.239459
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "2603a14e-3561-4da7-9ab9-7fad5abac1cb",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.135984,
+                    0.323652
+                ],
+                "bottom_left_back": [
+                    0.195106,
+                    0.291941
+                ],
+                "bottom_right_back": [
+                    0.148272,
+                    0.291941
+                ],
+                "bottom_right_front": [
+                    0.190356,
+                    0.323652
+                ],
+                "top_left_front": [
+                    0.135984,
+                    0.207982
+                ],
+                "top_left_back": [
+                    0.195106,
+                    0.192307
+                ],
+                "top_right_back": [
+                    0.148272,
+                    0.192307
+                ],
+                "top_right_front": [
+                    0.190356,
+                    0.207982
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Other"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "b5c5a964-0eda-4fef-beaa-891459e15c0c",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.495922,
+                    0.199095
+                ],
+                "bottom_left_back": [
+                    0.467571,
+                    0.191502
+                ],
+                "bottom_right_back": [
+                    0.482859,
+                    0.191502
+                ],
+                "bottom_right_front": [
+                    0.513758,
+                    0.199095
+                ],
+                "top_left_front": [
+                    0.495922,
+                    0.164926
+                ],
+                "top_left_back": [
+                    0.467571,
+                    0.162215
+                ],
+                "top_right_back": [
+                    0.482859,
+                    0.162215
+                ],
+                "top_right_front": [
+                    0.513758,
+                    0.164926
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "7d38eb16-cd95-4c39-9ee8-4d8713f6f88e",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.261081,
+                    0.27248
+                ],
+                "bottom_left_back": [
+                    0.25955,
+                    0.263008
+                ],
+                "bottom_right_back": [
+                    0.289926,
+                    0.263008
+                ],
+                "bottom_right_front": [
+                    0.293652,
+                    0.27248
+                ],
+                "top_left_front": [
+                    0.261081,
+                    0.235923
+                ],
+                "top_left_back": [
+                    0.25955,
+                    0.228915
+                ],
+                "top_right_back": [
+                    0.289926,
+                    0.228915
+                ],
+                "top_right_front": [
+                    0.293652,
+                    0.235923
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "2b784bac-9026-44f5-960f-cb49bdf4fe7e",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.211732,
+                    0.168025
+                ],
+                "bottom_left_back": [
+                    0.237146,
+                    0.164455
+                ],
+                "bottom_right_back": [
+                    0.212672,
+                    0.164455
+                ],
+                "bottom_right_front": [
+                    0.236263,
+                    0.168025
+                ],
+                "top_left_front": [
+                    0.211732,
+                    0.119235
+                ],
+                "top_left_back": [
+                    0.237146,
+                    0.115778
+                ],
+                "top_right_back": [
+                    0.212672,
+                    0.115778
+                ],
+                "top_right_front": [
+                    0.236263,
+                    0.119235
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "ed9a8399-aa0f-4dc0-92dc-de01d9dfa88f",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.523987,
+                    0.156448
+                ],
+                "bottom_left_back": [
+                    0.518575,
+                    0.153521
+                ],
+                "bottom_right_back": [
+                    0.541742,
+                    0.153521
+                ],
+                "bottom_right_front": [
+                    0.547655,
+                    0.156448
+                ],
+                "top_left_front": [
+                    0.523987,
+                    0.101776
+                ],
+                "top_left_back": [
+                    0.518575,
+                    0.100007
+                ],
+                "top_right_back": [
+                    0.541742,
+                    0.100007
+                ],
+                "top_right_front": [
+                    0.547655,
+                    0.101776
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "d4d2df5d-30ac-44bb-897a-6d27c8494ed3",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.181362,
+                    0.23628
+                ],
+                "bottom_left_back": [
+                    0.219063,
+                    0.230226
+                ],
+                "bottom_right_back": [
+                    0.182819,
+                    0.230226
+                ],
+                "bottom_right_front": [
+                    0.217735,
+                    0.23628
+                ],
+                "top_left_front": [
+                    0.181362,
+                    0.152968
+                ],
+                "top_left_back": [
+                    0.219063,
+                    0.14721
+                ],
+                "top_right_back": [
+                    0.182819,
+                    0.14721
+                ],
+                "top_right_front": [
+                    0.217735,
+                    0.152968
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "bc5caa84-995c-43c2-9df3-b15a9b2e79c6",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.299122,
+                    0.307209
+                ],
+                "bottom_left_back": [
+                    0.332745,
+                    0.289493
+                ],
+                "bottom_right_back": [
+                    0.308584,
+                    0.289493
+                ],
+                "bottom_right_front": [
+                    0.331169,
+                    0.307209
+                ],
+                "top_left_front": [
+                    0.299122,
+                    0.264391
+                ],
+                "top_left_back": [
+                    0.332745,
+                    0.257212
+                ],
+                "top_right_back": [
+                    0.308584,
+                    0.257212
+                ],
+                "top_right_front": [
+                    0.331169,
+                    0.264391
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "0ee5a745-3112-456d-a477-7125f2059337",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.620608,
+                    0.880567
+                ],
+                "bottom_left_back": [
+                    0.603919,
+                    0.845441
+                ],
+                "bottom_right_back": [
+                    0.717432,
+                    0.845441
+                ],
+                "bottom_right_front": [
+                    0.745697,
+                    0.880567
+                ],
+                "top_left_front": [
+                    0.620608,
+                    0.734304
+                ],
+                "top_left_back": [
+                    0.603919,
+                    0.712713
+                ],
+                "top_right_back": [
+                    0.717432,
+                    0.712713
+                ],
+                "top_right_front": [
+                    0.745697,
+                    0.734304
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "75457d74-1e00-4ca2-8f86-e6b319b22e93",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.871094,
+                    0.320099
+                ],
+                "bottom_left_back": [
+                    0.862041,
+                    0.313344
+                ],
+                "bottom_right_back": [
+                    0.902102,
+                    0.313344
+                ],
+                "bottom_right_front": [
+                    0.912078,
+                    0.320099
+                ],
+                "top_left_front": [
+                    0.871094,
+                    0.20265
+                ],
+                "top_left_back": [
+                    0.862041,
+                    0.19854
+                ],
+                "top_right_back": [
+                    0.902102,
+                    0.19854
+                ],
+                "top_right_front": [
+                    0.912078,
+                    0.20265
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "827e69b5-3996-4954-baba-47b9ced3215c",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    -0.069408,
+                    0.68924
+                ],
+                "bottom_left_back": [
+                    0.04644,
+                    0.662211
+                ],
+                "bottom_right_back": [
+                    -0.065585,
+                    0.662211
+                ],
+                "bottom_right_front": [
+                    0.03541,
+                    0.68924
+                ],
+                "top_left_front": [
+                    -0.069408,
+                    0.434694
+                ],
+                "top_left_back": [
+                    0.04644,
+                    0.390164
+                ],
+                "top_right_back": [
+                    -0.065585,
+                    0.390164
+                ],
+                "top_right_front": [
+                    0.03541,
+                    0.434694
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "748dab78-fac8-4753-9f00-13a8b37aa644",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.518851,
+                    0.22131
+                ],
+                "bottom_left_back": [
+                    0.514054,
+                    0.216375
+                ],
+                "bottom_right_back": [
+                    0.537746,
+                    0.216375
+                ],
+                "bottom_right_front": [
+                    0.544547,
+                    0.22131
+                ],
+                "top_left_front": [
+                    0.518851,
+                    0.178788
+                ],
+                "top_left_back": [
+                    0.514054,
+                    0.177169
+                ],
+                "top_right_back": [
+                    0.537746,
+                    0.177169
+                ],
+                "top_right_front": [
+                    0.544547,
+                    0.178788
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "7a9f797b-45fa-4116-83ad-77949115be0a",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.562278,
+                    0.192027
+                ],
+                "bottom_left_back": [
+                    0.556588,
+                    0.188053
+                ],
+                "bottom_right_back": [
+                    0.57364,
+                    0.188053
+                ],
+                "bottom_right_front": [
+                    0.580276,
+                    0.192027
+                ],
+                "top_left_front": [
+                    0.562278,
+                    0.166411
+                ],
+                "top_left_back": [
+                    0.556588,
+                    0.163783
+                ],
+                "top_right_back": [
+                    0.57364,
+                    0.163783
+                ],
+                "top_right_front": [
+                    0.580276,
+                    0.166411
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "MOSTLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "51848fb6-85d6-4c23-83df-acd80329f010",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.49311,
+                    0.171742
+                ],
+                "bottom_left_back": [
+                    0.49049,
+                    0.169103
+                ],
+                "bottom_right_back": [
+                    0.503799,
+                    0.169103
+                ],
+                "bottom_right_front": [
+                    0.507302,
+                    0.171742
+                ],
+                "top_left_front": [
+                    0.49311,
+                    0.149991
+                ],
+                "top_left_back": [
+                    0.49049,
+                    0.148705
+                ],
+                "top_right_back": [
+                    0.503799,
+                    0.148705
+                ],
+                "top_right_front": [
+                    0.507302,
+                    0.149991
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "59792b89-3993-4391-82a3-cb3edb7db6c6",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.537807,
+                    0.200477
+                ],
+                "bottom_left_back": [
+                    0.5333,
+                    0.196142
+                ],
+                "bottom_right_back": [
+                    0.552548,
+                    0.196142
+                ],
+                "bottom_right_front": [
+                    0.558365,
+                    0.200477
+                ],
+                "top_left_front": [
+                    0.537807,
+                    0.167415
+                ],
+                "top_left_back": [
+                    0.5333,
+                    0.165186
+                ],
+                "top_right_back": [
+                    0.552548,
+                    0.165186
+                ],
+                "top_right_front": [
+                    0.558365,
+                    0.167415
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "da6f7378-9201-4470-9afb-cd32a53fb3d8",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    -0.075856,
+                    0.67373
+                ],
+                "bottom_left_back": [
+                    0.075581,
+                    0.604867
+                ],
+                "bottom_right_back": [
+                    -0.036077,
+                    0.604867
+                ],
+                "bottom_right_front": [
+                    0.046107,
+                    0.67373
+                ],
+                "top_left_front": [
+                    -0.075856,
+                    0.377604
+                ],
+                "top_left_back": [
+                    0.075581,
+                    0.333762
+                ],
+                "top_right_back": [
+                    -0.036077,
+                    0.333762
+                ],
+                "top_right_front": [
+                    0.046107,
+                    0.377604
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Other"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "c5ceeacd-3958-4d3a-96de-d2f48e841316",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.62708,
+                    0.204883
+                ],
+                "bottom_left_back": [
+                    0.616144,
+                    0.196775
+                ],
+                "bottom_right_back": [
+                    0.645803,
+                    0.196775
+                ],
+                "bottom_right_front": [
+                    0.658507,
+                    0.204883
+                ],
+                "top_left_front": [
+                    0.62708,
+                    0.124745
+                ],
+                "top_left_back": [
+                    0.616144,
+                    0.121145
+                ],
+                "top_right_back": [
+                    0.645803,
+                    0.121145
+                ],
+                "top_right_front": [
+                    0.658507,
+                    0.124745
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "e95d2506-960d-48c0-bb57-9846d2d16bad",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.338293,
+                    0.18159
+                ],
+                "bottom_left_back": [
+                    0.356678,
+                    0.178489
+                ],
+                "bottom_right_back": [
+                    0.339763,
+                    0.178489
+                ],
+                "bottom_right_front": [
+                    0.355662,
+                    0.18159
+                ],
+                "top_left_front": [
+                    0.338293,
+                    0.159485
+                ],
+                "top_left_back": [
+                    0.356678,
+                    0.156962
+                ],
+                "top_right_back": [
+                    0.339763,
+                    0.156962
+                ],
+                "top_right_front": [
+                    0.355662,
+                    0.159485
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "ee2fb21c-411c-49c7-8e08-58e455f6387e",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.410623,
+                    0.415626
+                ],
+                "bottom_left_back": [
+                    0.407212,
+                    0.397353
+                ],
+                "bottom_right_back": [
+                    0.447721,
+                    0.397353
+                ],
+                "bottom_right_front": [
+                    0.461566,
+                    0.415626
+                ],
+                "top_left_front": [
+                    0.410623,
+                    0.356117
+                ],
+                "top_left_back": [
+                    0.407212,
+                    0.350033
+                ],
+                "top_right_back": [
+                    0.447721,
+                    0.350033
+                ],
+                "top_right_front": [
+                    0.461566,
+                    0.356117
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "93251edc-0695-4051-aca6-362ba2634726",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.324434,
+                    0.15615
+                ],
+                "bottom_left_back": [
+                    0.322096,
+                    0.15519
+                ],
+                "bottom_right_back": [
+                    0.336778,
+                    0.15519
+                ],
+                "bottom_right_front": [
+                    0.338938,
+                    0.15615
+                ],
+                "top_left_front": [
+                    0.324434,
+                    0.134404
+                ],
+                "top_left_back": [
+                    0.322096,
+                    0.133177
+                ],
+                "top_right_back": [
+                    0.336778,
+                    0.133177
+                ],
+                "top_right_front": [
+                    0.338938,
+                    0.134404
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "bc036dca-1ba3-4481-b82d-7895c49d62f9",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.473738,
+                    0.118719
+                ],
+                "bottom_left_back": [
+                    0.470427,
+                    0.11653
+                ],
+                "bottom_right_back": [
+                    0.48747,
+                    0.11653
+                ],
+                "bottom_right_front": [
+                    0.491278,
+                    0.118719
+                ],
+                "top_left_front": [
+                    0.473738,
+                    0.079447
+                ],
+                "top_left_back": [
+                    0.470427,
+                    0.078371
+                ],
+                "top_right_back": [
+                    0.48747,
+                    0.078371
+                ],
+                "top_right_front": [
+                    0.491278,
+                    0.079447
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "5df9a460-40ef-4576-8088-8bef2b8cfeab",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.135709,
+                    0.315996
+                ],
+                "bottom_left_back": [
+                    0.204342,
+                    0.295262
+                ],
+                "bottom_right_back": [
+                    0.150857,
+                    0.295262
+                ],
+                "bottom_right_front": [
+                    0.193763,
+                    0.315996
+                ],
+                "top_left_front": [
+                    0.135709,
+                    0.186755
+                ],
+                "top_left_back": [
+                    0.204342,
+                    0.176192
+                ],
+                "top_right_back": [
+                    0.150857,
+                    0.176192
+                ],
+                "top_right_front": [
+                    0.193763,
+                    0.186755
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Other"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "bd9fc973-d1e4-4106-a523-e778914ad530",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.285764,
+                    0.135253
+                ],
+                "bottom_left_back": [
+                    0.285736,
+                    0.135657
+                ],
+                "bottom_right_back": [
+                    0.305979,
+                    0.135657
+                ],
+                "bottom_right_front": [
+                    0.304606,
+                    0.135253
+                ],
+                "top_left_front": [
+                    0.285764,
+                    0.103309
+                ],
+                "top_left_back": [
+                    0.285736,
+                    0.101338
+                ],
+                "top_right_back": [
+                    0.305979,
+                    0.101338
+                ],
+                "top_right_front": [
+                    0.304606,
+                    0.103309
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "060263da-f003-4af3-8453-e905427918d5",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.087988,
+                    0.385048
+                ],
+                "bottom_left_back": [
+                    0.166551,
+                    0.36416
+                ],
+                "bottom_right_back": [
+                    0.097207,
+                    0.36416
+                ],
+                "bottom_right_front": [
+                    0.159177,
+                    0.385048
+                ],
+                "top_left_front": [
+                    0.087988,
+                    0.230595
+                ],
+                "top_left_back": [
+                    0.166551,
+                    0.213711
+                ],
+                "top_right_back": [
+                    0.097207,
+                    0.213711
+                ],
+                "top_right_front": [
+                    0.159177,
+                    0.230595
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "134e84b7-4ce1-44ed-8757-df70db527edc",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.619255,
+                    0.295721
+                ],
+                "bottom_left_back": [
+                    0.611565,
+                    0.29002
+                ],
+                "bottom_right_back": [
+                    0.647718,
+                    0.29002
+                ],
+                "bottom_right_front": [
+                    0.656233,
+                    0.295721
+                ],
+                "top_left_front": [
+                    0.619255,
+                    0.242906
+                ],
+                "top_left_back": [
+                    0.611565,
+                    0.238383
+                ],
+                "top_right_back": [
+                    0.647718,
+                    0.238383
+                ],
+                "top_right_front": [
+                    0.656233,
+                    0.242906
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "9a81c8e1-2995-43b9-8bf4-6e70c6aec04d",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.19964,
+                    1.336088
+                ],
+                "bottom_left_back": [
+                    0.461085,
+                    1.213957
+                ],
+                "bottom_right_back": [
+                    0.203579,
+                    1.213957
+                ],
+                "bottom_right_front": [
+                    0.461334,
+                    1.336088
+                ],
+                "top_left_front": [
+                    0.19964,
+                    0.917348
+                ],
+                "top_left_back": [
+                    0.461085,
+                    0.801918
+                ],
+                "top_right_back": [
+                    0.203579,
+                    0.801918
+                ],
+                "top_right_front": [
+                    0.461334,
+                    0.917348
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Blue"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "94ad7404-abbc-4298-b145-e79469b63de0",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.252409,
+                    0.174963
+                ],
+                "bottom_left_back": [
+                    0.271685,
+                    0.170479
+                ],
+                "bottom_right_back": [
+                    0.254386,
+                    0.170479
+                ],
+                "bottom_right_front": [
+                    0.270592,
+                    0.174963
+                ],
+                "top_left_front": [
+                    0.252409,
+                    0.153443
+                ],
+                "top_left_back": [
+                    0.271685,
+                    0.150005
+                ],
+                "top_right_back": [
+                    0.254386,
+                    0.150005
+                ],
+                "top_right_front": [
+                    0.270592,
+                    0.153443
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "30d02846-9726-4801-b530-d5d885b98d9b",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.50582,
+                    0.212061
+                ],
+                "bottom_left_back": [
+                    0.500275,
+                    0.207405
+                ],
+                "bottom_right_back": [
+                    0.516983,
+                    0.207405
+                ],
+                "bottom_right_front": [
+                    0.523905,
+                    0.212061
+                ],
+                "top_left_front": [
+                    0.50582,
+                    0.184762
+                ],
+                "top_left_back": [
+                    0.500275,
+                    0.182185
+                ],
+                "top_right_back": [
+                    0.516983,
+                    0.182185
+                ],
+                "top_right_front": [
+                    0.523905,
+                    0.184762
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "63fa60ea-91d0-4803-9d14-d172bf328392",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.482558,
+                    0.197857
+                ],
+                "bottom_left_back": [
+                    0.478585,
+                    0.190197
+                ],
+                "bottom_right_back": [
+                    0.500007,
+                    0.190197
+                ],
+                "bottom_right_front": [
+                    0.506779,
+                    0.197857
+                ],
+                "top_left_front": [
+                    0.482558,
+                    0.149229
+                ],
+                "top_left_back": [
+                    0.478585,
+                    0.147188
+                ],
+                "top_right_back": [
+                    0.500007,
+                    0.147188
+                ],
+                "top_right_front": [
+                    0.506779,
+                    0.149229
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "1"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "83168061-60a5-44b8-9ad9-7e1e89dcfc58",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.087452,
+                    0.39834
+                ],
+                "bottom_left_back": [
+                    0.158488,
+                    0.386057
+                ],
+                "bottom_right_back": [
+                    0.088575,
+                    0.386057
+                ],
+                "bottom_right_front": [
+                    0.153612,
+                    0.39834
+                ],
+                "top_left_front": [
+                    0.087452,
+                    0.255888
+                ],
+                "top_left_back": [
+                    0.158488,
+                    0.235525
+                ],
+                "top_right_back": [
+                    0.088575,
+                    0.235525
+                ],
+                "top_right_front": [
+                    0.153612,
+                    0.255888
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Black"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "3e829c89-44d7-415f-8490-e8ec8338ba1c",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.353876,
+                    0.156522
+                ],
+                "bottom_left_back": [
+                    0.353112,
+                    0.154624
+                ],
+                "bottom_right_back": [
+                    0.369151,
+                    0.154624
+                ],
+                "bottom_right_front": [
+                    0.370318,
+                    0.156522
+                ],
+                "top_left_front": [
+                    0.353876,
+                    0.133164
+                ],
+                "top_left_back": [
+                    0.353112,
+                    0.131839
+                ],
+                "top_right_back": [
+                    0.369151,
+                    0.131839
+                ],
+                "top_right_front": [
+                    0.370318,
+                    0.133164
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Trailer Type": {
+                    "value": "Container"
+                }
+            },
+            "category": "Trailer",
+            "id": "483ef154-04ab-4354-8691-b7346ca56f11",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.236514,
+                    0.144398
+                ],
+                "bottom_left_back": [
+                    0.258759,
+                    0.14052
+                ],
+                "bottom_right_back": [
+                    0.239661,
+                    0.14052
+                ],
+                "bottom_right_front": [
+                    0.256076,
+                    0.144398
+                ],
+                "top_left_front": [
+                    0.236514,
+                    0.09932
+                ],
+                "top_left_back": [
+                    0.258759,
+                    0.096512
+                ],
+                "top_right_back": [
+                    0.239661,
+                    0.096512
+                ],
+                "top_right_front": [
+                    0.256076,
+                    0.09932
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Van",
+            "id": "4e96ef3e-48f3-4bac-9023-22efa4afe8c8",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.436262,
+                    0.135913
+                ],
+                "bottom_left_back": [
+                    0.433395,
+                    0.134274
+                ],
+                "bottom_right_back": [
+                    0.445043,
+                    0.134274
+                ],
+                "bottom_right_front": [
+                    0.44836,
+                    0.135913
+                ],
+                "top_left_front": [
+                    0.436262,
+                    0.112316
+                ],
+                "top_left_back": [
+                    0.433395,
+                    0.111554
+                ],
+                "top_right_back": [
+                    0.445043,
+                    0.111554
+                ],
+                "top_right_front": [
+                    0.44836,
+                    0.112316
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "White"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "6c8cc68e-2f2f-4f32-9a5d-73c0cc325cbb",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.509732,
+                    0.187316
+                ],
+                "bottom_left_back": [
+                    0.506562,
+                    0.184479
+                ],
+                "bottom_right_back": [
+                    0.524257,
+                    0.184479
+                ],
+                "bottom_right_front": [
+                    0.527592,
+                    0.187316
+                ],
+                "top_left_front": [
+                    0.509732,
+                    0.157694
+                ],
+                "top_left_back": [
+                    0.506562,
+                    0.15513
+                ],
+                "top_right_back": [
+                    0.524257,
+                    0.15513
+                ],
+                "top_right_front": [
+                    0.527592,
+                    0.157694
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "b48ed9da-fd4e-4261-8873-f33beb86e10f",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.582642,
+                    0.20096
+                ],
+                "bottom_left_back": [
+                    0.579975,
+                    0.197154
+                ],
+                "bottom_right_back": [
+                    0.596966,
+                    0.197154
+                ],
+                "bottom_right_front": [
+                    0.601522,
+                    0.20096
+                ],
+                "top_left_front": [
+                    0.582642,
+                    0.173819
+                ],
+                "top_left_back": [
+                    0.579975,
+                    0.172729
+                ],
+                "top_right_back": [
+                    0.596966,
+                    0.172729
+                ],
+                "top_right_front": [
+                    0.601522,
+                    0.173819
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Gray"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "54c7b04b-9db2-4f5f-b559-2aad959a7f5b",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.576003,
+                    0.502872
+                ],
+                "bottom_left_back": [
+                    0.567069,
+                    0.486532
+                ],
+                "bottom_right_back": [
+                    0.620831,
+                    0.486532
+                ],
+                "bottom_right_front": [
+                    0.634394,
+                    0.502872
+                ],
+                "top_left_front": [
+                    0.576003,
+                    0.423161
+                ],
+                "top_left_back": [
+                    0.567069,
+                    0.41314
+                ],
+                "top_right_back": [
+                    0.620831,
+                    0.41314
+                ],
+                "top_right_front": [
+                    0.634394,
+                    0.423161
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Red"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "PARTIALLY_OCCLUDED"
+                },
+                "Truck Type": {
+                    "value": "Delivery Truck"
+                }
+            },
+            "category": "Truck",
+            "id": "7cb63a9d-18c8-4691-88d0-02db2fcd3261",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.424822,
+                    0.114515
+                ],
+                "bottom_left_back": [
+                    0.42112,
+                    0.110585
+                ],
+                "bottom_right_back": [
+                    0.434751,
+                    0.110585
+                ],
+                "bottom_right_front": [
+                    0.439632,
+                    0.114515
+                ],
+                "top_left_front": [
+                    0.424822,
+                    0.077623
+                ],
+                "top_left_back": [
+                    0.42112,
+                    0.076631
+                ],
+                "top_right_back": [
+                    0.434751,
+                    0.076631
+                ],
+                "top_right_front": [
+                    0.439632,
+                    0.077623
+                ]
+            }
+        },
+        {
+            "attributes": {
+                "Body Color": {
+                    "value": "Red"
+                },
+                "Number of Trailers": {
+                    "value": "0"
+                },
+                "Occluded": {
+                    "value": "NOT_OCCLUDED"
+                }
+            },
+            "category": "Car",
+            "id": "ebe0da79-2bb8-422a-91a2-0c1f7175686e",
+            "box3d_projected": {
+                "bottom_left_front": [
+                    0.803183,
+                    0.353206
+                ],
+                "bottom_left_back": [
+                    0.792125,
+                    0.345892
+                ],
+                "bottom_right_back": [
+                    0.828573,
+                    0.345892
+                ],
+                "bottom_right_front": [
+                    0.841671,
+                    0.353206
+                ],
+                "top_left_front": [
+                    0.803183,
+                    0.297595
+                ],
+                "top_left_back": [
+                    0.792125,
+                    0.293229
+                ],
+                "top_right_back": [
+                    0.828573,
+                    0.293229
+                ],
+                "top_right_front": [
+                    0.841671,
+                    0.297595
+                ]
+            }
+        }
+    ],
+    "timestamp_nsecs": "043000000",
+    "timestamp_secs": "1617874313"
+}

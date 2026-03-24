@@ -1,0 +1,139 @@
+{
+  "cases": [
+    {
+      "image": "/home/group1/chart-incident-management/test_images/Image_79.jpg",
+      "expected": {
+        "incident_type": "crash",
+        "vehicles": {
+          "total_count": 4,
+          "involved_in_incident": [
+            {
+              "type": "pickup_truck",
+              "color": "blue",
+              "damaged": true,
+              "position": "crash_location"
+            }
+          ],
+          "nearby_traffic": [
+            {
+              "type": "bus",
+              "color": "blue_white",
+              "damaged": false,
+              "position": "right_side"
+            },
+            {
+              "type": "pickup",
+              "color": "red",
+              "damaged": false,
+              "position": "left_side"
+            },
+            {
+              "type": "bus",
+              "color": "yellow",
+              "damaged": false,
+              "position": "oncoming"
+            }
+          ],
+          "emergency_vehicles": [],
+          "pedestrians": {
+            "count": 5,
+            "positions": [
+              "right_side"
+            ],
+            "on_roadway": false
+          }
+        },
+        "lanes": {
+          "total": 4,
+          "blocked": [
+            1
+          ],
+          "shoulder_blocked": false,
+          "affected_lanes": [
+            1
+          ]
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": true,
+          "injuries_visible": false,
+          "spill": false
+        },
+        "traffic": {
+          "state": "slowing",
+          "queue_length_meters": 100,
+          "lanes_affected": [
+            1
+          ]
+        },
+        "emergency_response": {
+          "police_present": true,
+          "officers_count": 3,
+          "ambulance_present": false,
+          "fire_truck_present": false,
+          "responders_on_scene": true
+        }
+      },
+      "description": "Blue pickup crashed on red truck, blocking left lane. Police on scene. Other traffic passing.",
+      "critical_rules": [
+        "3+ vehicles total = RED",
+        "debris_present = YELLOW",
+        "police_on_scene = dispatch_confirmed"
+      ]
+    },
+    {
+      "image": "/home/group1/chart-incident-management/test_images/car.jpg",
+      "expected": {
+        "incident_type": "none",
+        "vehicles": {
+          "total_count": 1,
+          "involved_in_incident": [],
+          "nearby_traffic": [
+            {
+              "type": "car",
+              "color": "blue",
+              "damaged": false,
+              "position": "driving"
+            }
+          ],
+          "emergency_vehicles": [],
+          "pedestrians": {
+            "count": 0,
+            "positions": [],
+            "on_roadway": false
+          }
+        },
+        "lanes": {
+          "total": 4,
+          "blocked": [],
+          "shoulder_blocked": false,
+          "affected_lanes": []
+        },
+        "hazards": {
+          "fire": false,
+          "smoke": false,
+          "debris": false,
+          "injuries_visible": false,
+          "spill": false
+        },
+        "traffic": {
+          "state": "flowing",
+          "queue_length_meters": 0,
+          "lanes_affected": []
+        },
+        "emergency_response": {
+          "police_present": false,
+          "officers_count": 0,
+          "ambulance_present": false,
+          "fire_truck_present": false,
+          "responders_on_scene": false
+        }
+      },
+      "description": "Blue Camry driving normally",
+      "critical_rules": [
+        "false_positive"
+      ]
+    }
+  ]
+}
