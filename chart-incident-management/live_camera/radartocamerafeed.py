@@ -12,58 +12,31 @@ from collections import deque
 from scipy.spatial import KDTree
 
 # =========================
-# 1. LOAD CAMERAS JSON
+# FILE PATHS
+# =========================
+
+CAMERA_FILE = "GetCameras.json"
+SENSOR_FILE = "GetSensors.json"
+
+# =========================
+# LOADERS
 # =========================
 
 def load_cameras(path):
     with open(path) as f:
-        data = json.load(f)
-
-    cameras = []
-
-    for cam in data:
-        cameras.append({
-            "id": cam["id"],
-            "url": cam["url"],
-            "lat": cam["lat"],
-            "lon": cam["lon"]
-        })
-
-    return cameras
-
-
-# =========================
-# 2. LOAD SENSORS JSON
-# =========================
+        return json.load(f)
 
 def load_sensors(path):
     with open(path) as f:
-        data = json.load(f)
-
-    sensors = {}
-
-    for s in data:
-        sensors[s["id"]] = {
-            "lat": s["lat"],
-            "lon": s["lon"]
-        }
-
-    return sensors
-
+        return json.load(f)
 
 # =========================
-# 3. BUILD KD TREE (CAMERAS)
+# KD TREE
 # =========================
 
 def build_kdtree(cameras):
     points = [(cam["lat"], cam["lon"]) for cam in cameras]
-    tree = KDTree(points)
-    return tree
-
-
-# =========================
-# 4. FIND CLOSEST CAMERAS
-# =========================
+    return KDTree(points)
 
 def get_nearest_cameras(lat, lon, tree, cameras, k=3):
     distances, indices = tree.query((lat, lon), k=k)
@@ -73,9 +46,8 @@ def get_nearest_cameras(lat, lon, tree, cameras, k=3):
 
     return [cameras[i] for i in indices]
 
-
 # =========================
-# 5. CAMERA STREAM CLASS
+# CAMERA STREAM
 # =========================
 
 class CameraStream:
@@ -94,14 +66,13 @@ class CameraStream:
                 continue
 
             self.buffer.append(frame)
-            time.sleep(0.03)
+            time.sleep(0.03)  # ~30 FPS
 
     def get_buffer(self):
         return list(self.buffer)
 
-
 # =========================
-# 6. START CAMERA STREAMS
+# START STREAMS
 # =========================
 
 def start_camera_streams(camera_list):
@@ -115,18 +86,16 @@ def start_camera_streams(camera_list):
 
     return streams
 
-
 # =========================
-# 7. AI MODEL PLACEHOLDER
+# AI MODEL (PLACEHOLDER)
 # =========================
 
 def call_ai_model(frames):
     print(f"🤖 AI analyzing {len(frames)} frames...")
     return {"accident": True}
 
-
 # =========================
-# 8. SAVE VIDEO CLIP
+# SAVE CLIP
 # =========================
 
 def save_clip(frames, filename):
@@ -141,21 +110,17 @@ def save_clip(frames, filename):
 
     out.release()
 
-
 # =========================
-# 9. RADAR EVENT HANDLER
+# RADAR HANDLER
 # =========================
 
 last_trigger_time = {}
 COOLDOWN = 30
 
-def handle_radar_event(sensor_id, sensors, tree, cameras, streams):
+def handle_radar_event(sensor_id, sensors, sensor_to_cameras, streams):
     if sensor_id not in sensors:
         print("Unknown sensor")
         return
-
-    lat = sensors[sensor_id]["lat"]
-    lon = sensors[sensor_id]["lon"]
 
     now = time.time()
 
@@ -165,7 +130,7 @@ def handle_radar_event(sensor_id, sensors, tree, cameras, streams):
 
     last_trigger_time[sensor_id] = now
 
-    nearest_cams = get_nearest_cameras(lat, lon, tree, cameras, k=3)
+    nearest_cams = sensor_to_cameras[sensor_id]
 
     print(f"\n📡 Sensor {sensor_id} triggered")
     print("📍 Closest Cameras:")
@@ -194,21 +159,32 @@ def handle_radar_event(sensor_id, sensors, tree, cameras, streams):
 
     print("✅ No accident detected")
 
-
 # =========================
-# 10. MAIN
+# MAIN
 # =========================
 
-if __name__ == "__main__":
-    cameras = load_cameras("cameras.json")
-    sensors = load_sensors("sensors.json")
+if __name__ == "__camerafeed__":
+    # Load data
+    cameras = load_cameras(CAMERA_FILE)
+    sensors_list = load_sensors(SENSOR_FILE)
 
+    # Convert sensors to dict for fast lookup
+    sensors = {s["id"]: s for s in sensors_list}
+
+    # Build KDTree
     tree = build_kdtree(cameras)
 
-    # ⚠️ limit for testing
+    # Precompute nearest 3 cameras per sensor
+    sensor_to_cameras = {
+        s_id: get_nearest_cameras(s["lat"], s["lon"], tree, cameras, k=3)
+        for s_id, s in sensors.items()
+    }
+
+    # ⚠️ Limit streams for testing (IMPORTANT)
     streams = start_camera_streams(cameras[:10])
 
-    # Simulate radar trigger
+    print("⏳ Warming up camera buffers...")
     time.sleep(5)
 
-    handle_radar_event("sensor_1", sensors, tree, cameras, streams)
+    # Simulated radar trigger
+    handle_radar_event("sensor_1", sensors, sensor_to_cameras, streams)
