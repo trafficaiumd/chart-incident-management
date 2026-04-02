@@ -1,30 +1,3 @@
-
-Accident and Non-accident label Image Dataset - v14 Hai-s Augment attempt
-==============================
-
-This dataset was exported via roboflow.com on March 20, 2024 at 7:21 AM GMT
-
-Roboflow is an end-to-end computer vision platform that helps you
-* collaborate with your team on computer vision projects
-* collect & organize images
-* understand and search unstructured image data
-* annotate, and create datasets
-* export, train, and deploy computer vision models
-* use active learning to improve your dataset over time
-
-For state of the art Computer Vision training notebooks you can use with this dataset,
-visit https://github.com/roboflow/notebooks
-
-To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
-
-The dataset includes 3092 images.
--accident- are annotated in COCO format.
-
-The following pre-processing was applied to each image:
-* Resize to 640x640 (Fit (black edges))
-
-The following augmentation was applied to create 3 versions of each source image:
-* 50% probability of horizontal flip
-* Random brigthness adjustment of between -20 and +20 percent
-
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb0d9079772054ff69bf1364800d38a4931f212a0d4a62b1042b51a962311869
+size 1105

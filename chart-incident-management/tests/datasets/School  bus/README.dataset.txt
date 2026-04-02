@@ -1,6 +1,3 @@
-# School  bus > 2025-01-10 12:42pm
-https://universe.roboflow.com/mercuryriot/school-bus-i8ef3
-
-Provided by a Roboflow user
-License: CC BY 4.0
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d355b35c1a6e7604dc46f9dc84e3036a717c4d16fa168af76c3b6f21c0d10cd
+size 143

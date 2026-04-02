@@ -1,26 +1,3 @@
-import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.image import MIMEImage
-from email.mime.multipart import MIMEMultipart
-
-
-def SendMail(ImgFileName):
-    img_data = open(ImgFileName, "rb").read()
-    msg = MIMEMultipart()
-    msg["Subject"] = "Crash Alert"
-    msg["From"] = "xxxx@gmail.com.cc"
-    msg["To"] = "xxxxxx@gmail.com.cc"
-
-    text = MIMEText("Vehicle Crash Detected. Send HELP")
-    msg.attach(text)
-    image = MIMEImage(img_data, name=os.path.basename(ImgFileName))
-    msg.attach(image)
-
-    s = smtplib.SMTP("smtp.gmail.com", 587)
-    s.ehlo()
-    s.starttls()
-    s.ehlo()
-    s.login("xxxxx@gmail.com", "xxxxxxx")
-    s.sendmail("xxxxxx@gmail.com", "xxxxxxx@gmail.com", msg.as_string())
-    s.quit()
+version https://git-lfs.github.com/spec/v1
+oid sha256:e2c8ea5a6619f38f0eea5af3751f08411ef4d4e234d47338576b48c74a27d6cd
+size 745

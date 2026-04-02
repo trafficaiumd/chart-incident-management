@@ -1,34 +1,3 @@
-{
-  "gpt4": {
-    "accuracy": 0.0,
-    "error_breakdown": {
-      "incident_type": 1,
-      "vehicle_count": 2,
-      "vehicle_types": 0,
-      "lane_blocked": 1,
-      "hazards": 1,
-      "traffic_state": 1,
-      "emergency_response": 1,
-      "pedestrians": 0
-    },
-    "avg_time": 1.6689300537109375e-06,
-    "total_cost": 0.04
-  },
-  "gemini": {
-    "accuracy": 0.0,
-    "error_breakdown": {
-      "incident_type": 1,
-      "vehicle_count": 2,
-      "vehicle_types": 0,
-      "lane_blocked": 1,
-      "hazards": 1,
-      "traffic_state": 1,
-      "emergency_response": 1,
-      "pedestrians": 0
-    },
-    "avg_time": 1.3113021850585938e-06,
-    "total_cost": 0.04
-  },
-  "winner": "tie",
-  "simulation": true
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:02095d259fb347b978b5955bd6e682e55f064e107579c84a764278c6529a61a8
+size 717

@@ -1,8 +1,3 @@
-from inference import get_model
-import os
-
-# This line downloads the weights and saves them to a local folder
-# It only uses your API key ONCE to authenticate the download
-model = get_model(model_id="accident-vnrxw/2", api_key="qCHzNyNmqVTmbdQhAxWt")
-
-print("Model is now saved locally! You can now code offline.")
+version https://git-lfs.github.com/spec/v1
+oid sha256:5e1368e00fc9d1b674554477800d3516a13f39a95465cdaa9b4cc96691590fc6
+size 314

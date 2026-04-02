@@ -1,6 +1,3 @@
-# tanker > 2024-06-08 4:46pm
-https://universe.roboflow.com/fdori/tanker-yga17
-
-Provided by a Roboflow user
-License: CC BY 4.0
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:f01284e12ae2e591c562ef57e2913606ccab569884a28d4b0477d81f01c374cb
+size 127

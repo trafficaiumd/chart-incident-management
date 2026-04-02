@@ -1,12 +1,3 @@
-# tests/test_decision_engine.py
-from decision_engine.severity import calculate_severity
-from compare_models import gpt4_analyze  # Use your stubs!
-
-def test_severity_with_stub_output():
-    # Get stub output
-    output = gpt4_analyze("/path/to/Image_79.jpg")
-    
-    # Test decision engine
-    severity = calculate_severity(output)
-    assert severity['level'] in ['RED', 'YELLOW', 'GREEN']
-    print(f"Severity: {severity}")
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a247ca3ec87e5ba2370364ff5609df61474b9c72d620237bfe91a8ff6eef536
+size 426
