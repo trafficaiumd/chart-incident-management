@@ -42,6 +42,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import cv2
+from PIL import Image
 
 
 # ----------------------------
@@ -88,6 +89,7 @@ PREVIEW_JPEG_PATH = str(OUTPUT_DIR / "guard_preview.jpg")
 JUDGE_MONTAGE_PATH = str(OUTPUT_DIR / "judge_montage.jpg")
 DASHBOARD_LIVE_INCIDENTS_PATH = OUTPUT_DIR / "dashboard" / "data" / "live_incidents.json"
 DASHBOARD_ASSETS_DIR = OUTPUT_DIR / "dashboard" / "assets"
+STATUS_JSON_PATH = OUTPUT_DIR / "dashboard" / "data" / "status.json"
 
 # Circular buffer: last 2 seconds in RAM (requested: deque maxlen=60).
 # Note: this assumes ~30 FPS. If your source FPS differs, you can adjust maxlen.
@@ -99,11 +101,13 @@ BUFFER_FRAME_MAX_WIDTH = 640
 # Gemma 4 Judge settings (Local Path architecture)
 # Judge model is loaded strictly from local files under:
 #   ./models/gemma-4-E4B
-LOCAL_GEMMA_DIR = Path("./chart-incident-management/models/gemma-4-E4B").resolve()
+LOCAL_GEMMA_DIR = Path(__file__).resolve().parent / "models" / "gemma-4-E4B"
 GEMMA4_MAX_NEW_TOKENS = 64
+JUDGE_TILE_SIZE = 336
 
 # Strict cooldown between Judge triggers to avoid repeated expensive requests.
 JUDGE_COOLDOWN_SEC = 10
+JUDGE_SHUTDOWN_WAIT_SEC = 45.0
 
 # Tie-breaker hazards that can elevate non-collision incidents.
 HIGH_WEIGHT_HAZARDS = ["smoke", "fire", "fluid_leak", "airbag_deployed"]
@@ -113,15 +117,12 @@ GPU_MEMORY_FRACTION_FOR_THIS_PROCESS = 0.50
 
 JUDGE_SYSTEM_PROMPT = (
     "You are a traffic safety expert. Analyze this sequence of 6 frames. "
-    "Determine if a vehicle collision has occurred or is imminent. "
-    "Look for sudden changes in trajectory, impact debris, or airbag deployment. "
-    "You are a Traffic Management Expert. If you do not see a physical collision but you see a significant hazard "
-    "(e.g., a car on fire, a car stopped in the middle of a highway, or heavy smoke), set collision_confirmed to false "
-    "but set severity to high and list the hazards. Your reasoning must explain why this is a danger even without an impact. "
+    "If no physical collision is visible but a major hazard is visible "
+    "(fire, heavy smoke, or disabled vehicle blocking travel lanes), set collision_confirmed=false and severity=high. "
     "Return ONLY valid JSON (no markdown fences, no extra text) with EXACTLY these keys: "
     "collision_confirmed (boolean), severity (one of: low, med, high), "
     "lanes_blocked (integer), hazards (array of strings), vehicle_types (array of strings). "
-    "If uncertain, choose conservative values and still return valid JSON."
+    "Do not output explanations or chain-of-thought. Output JSON only."
 )
 
 
@@ -187,6 +188,22 @@ def _build_unique_montage_path() -> Path:
     DASHBOARD_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     stamp = time.strftime("%Y%m%d_%H%M%S")
     return DASHBOARD_ASSETS_DIR / f"montage_{stamp}_{time.time_ns() % 1000000}.jpg"
+
+
+def _write_status(state: str, detail: str = "") -> None:
+    """
+    Write coarse pipeline status for dashboard progress tracker.
+    """
+    try:
+        STATUS_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "state": str(state).upper(),
+            "detail": str(detail),
+            "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+        }
+        STATUS_JSON_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    except Exception:
+        pass
 
 
 def _extract_json_object(text: str) -> Optional[str]:
@@ -269,6 +286,40 @@ def _parse_judge_json_report(verdict_text: str) -> Optional[Dict]:
     }
 
 
+def _coerce_json_only(verdict_text: str) -> str:
+    """
+    Normalize model output into compact JSON to remove extra natural language.
+    """
+    parsed = _parse_judge_json_report(verdict_text)
+    if parsed is None:
+        return "{}"
+    return json.dumps(parsed, separators=(",", ":"))
+
+
+def _prepare_montage_for_judge(montage_bgr):
+    """
+    Resize the 2x3 montage so each tile matches a 336x336 vision encoder size.
+    """
+    if montage_bgr is None:
+        return montage_bgr
+    h, w = montage_bgr.shape[:2]
+    if h <= 0 or w <= 0:
+        return montage_bgr
+    tile_h = max(1, h // 2)
+    tile_w = max(1, w // 3)
+    out = Image.new("RGB", (JUDGE_TILE_SIZE * 3, JUDGE_TILE_SIZE * 2))
+    pil = Image.fromarray(cv2.cvtColor(montage_bgr, cv2.COLOR_BGR2RGB))
+    for r in range(2):
+        for c in range(3):
+            left = c * tile_w
+            upper = r * tile_h
+            right = w if c == 2 else (c + 1) * tile_w
+            lower = h if r == 1 else (r + 1) * tile_h
+            tile = pil.crop((left, upper, right, lower)).resize((JUDGE_TILE_SIZE, JUDGE_TILE_SIZE), Image.BICUBIC)
+            out.paste(tile, (c * JUDGE_TILE_SIZE, r * JUDGE_TILE_SIZE))
+    return out
+
+
 def save_verdict_to_dashboard(verdict: str, montage_path: str) -> None:
     """
     Append a live incident event for the Dash UI bridge.
@@ -290,6 +341,37 @@ def save_verdict_to_dashboard(verdict: str, montage_path: str) -> None:
         "hazards": list(parsed.get("hazards", [])),
         "vehicle_types": list(parsed.get("vehicle_types", [])),
         "incident_type": incident_type,
+    }
+    DASHBOARD_LIVE_INCIDENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    if DASHBOARD_LIVE_INCIDENTS_PATH.exists():
+        try:
+            existing = json.loads(DASHBOARD_LIVE_INCIDENTS_PATH.read_text(encoding="utf-8"))
+            if not isinstance(existing, list):
+                existing = []
+        except Exception:
+            existing = []
+    else:
+        existing = []
+    existing.append(incident)
+    DASHBOARD_LIVE_INCIDENTS_PATH.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+
+
+def save_fallback_incident_to_dashboard(*, montage_path: str, reason: str) -> None:
+    """
+    Ensure the dashboard gets a terminal record even if Judge stalls.
+    """
+    incident = {
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "verdict": f"FALLBACK: {reason}",
+        "montage_path": str(Path(montage_path).resolve()),
+        "collision_confirmed": False,
+        "severity": "high",
+        "lanes_blocked": 1,
+        "hazards": ["unknown"],
+        "vehicle_types": [],
+        "incident_type": "ACTIVE_HAZARD",
+        "uncertainty": True,
+        "confidence": 0.65,
     }
     DASHBOARD_LIVE_INCIDENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
     if DASHBOARD_LIVE_INCIDENTS_PATH.exists():
@@ -438,6 +520,12 @@ def load_gemma4_judge():
         str(LOCAL_GEMMA_DIR),
         local_files_only=True,
     )
+    # Move model to its chosen device once at startup to reduce cold-start stalls.
+    try:
+        first_param = next(model.parameters())
+        model.to(first_param.device)
+    except Exception:
+        pass
     return model, processor
 
 
@@ -502,6 +590,9 @@ def judge_inference_worker(
     into shared_state.
     """
     try:
+        import torch
+
+        _write_status("JUDGING", "Gemma 4 reasoning on physics...")
         print("[JUDGE] worker started", flush=True)
         model, processor = shared_state.get("gemma_model"), shared_state.get("gemma_processor")
         if model is None or processor is None:
@@ -512,11 +603,11 @@ def judge_inference_worker(
                 shared_state["gemma_processor"] = processor
             print("[JUDGE] Gemma model loaded", flush=True)
 
-        # Convert BGR->RGB for most vision processors.
-        montage_rgb = cv2.cvtColor(montage_bgr, cv2.COLOR_BGR2RGB)
+        # Resize to encoder-friendly tile geometry, then pass to processor.
+        montage_prepared = _prepare_montage_for_judge(montage_bgr)
 
         # Processor APIs vary; keep it simple: pass image + text.
-        inputs = processor(images=montage_rgb, text=JUDGE_SYSTEM_PROMPT, return_tensors="pt")
+        inputs = processor(images=montage_prepared, text=JUDGE_SYSTEM_PROMPT, return_tensors="pt")
 
         # Move tensors to the first model device where possible.
         try:
@@ -527,7 +618,14 @@ def judge_inference_worker(
             pass
 
         t0 = time.perf_counter()
-        outputs = model.generate(**inputs, max_new_tokens=GEMMA4_MAX_NEW_TOKENS)
+        with torch.inference_mode():
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=GEMMA4_MAX_NEW_TOKENS,
+                do_sample=False,
+                temperature=0.0,
+                top_p=1.0,
+            )
         gen_s = time.perf_counter() - t0
 
         try:
@@ -540,9 +638,10 @@ def judge_inference_worker(
             text = tok.decode(outputs[0], skip_special_tokens=True)
 
         finished_at_s = time.perf_counter()
-        verdict = text.strip()
+        verdict = _coerce_json_only(text.strip())
         print(f"[JUDGE] completed in {gen_s:.2f}s", flush=True)
         print(f"[JUDGE] verdict: {verdict}", flush=True)
+        _write_status("FINALIZING", "Generating CHART Report...")
         parsed = _parse_judge_json_report(verdict)
         should_persist = False
         if parsed is not None:
@@ -569,6 +668,15 @@ def judge_inference_worker(
             )
     except Exception as e:
         print(f"[JUDGE] ERROR: {e}", flush=True)
+        _write_status("FINALIZING", "Generating CHART Report...")
+        try:
+            save_fallback_incident_to_dashboard(
+                montage_path=montage_path,
+                reason=f"Judge error: {e}",
+            )
+            print("[JUDGE->DASH] wrote fallback incident from Judge error", flush=True)
+        except Exception as write_err:
+            print(f"[JUDGE->DASH] fallback write failed on Judge error: {write_err}", flush=True)
         with state_lock:
             shared_state["last_judge_result"] = JudgeResult(
                 verdict_text=f"JUDGE ERROR: {e}",
@@ -795,6 +903,7 @@ def run_guard(video_file_path: Optional[str] = None, use_webcam: bool = True) ->
     """
     Main realtime guard loop.
     """
+    _write_status("INGESTING", "Extracting Video Frames...")
     ensure_ultralytics_latest()
     ensure_judge_runtime_dependencies()
     model = load_model()
@@ -811,6 +920,7 @@ def run_guard(video_file_path: Optional[str] = None, use_webcam: bool = True) ->
         test_system(model, cap)
 
         print("Guard active. Press 'q' to quit.", flush=True)
+        _write_status("GUARDING", "YOLO26 Perception Active...")
         frame_index = 0
         fps = cap.get(cv2.CAP_PROP_FPS) or 0.0
         if fps <= 0:
@@ -888,9 +998,11 @@ def run_guard(video_file_path: Optional[str] = None, use_webcam: bool = True) ->
                             f"Wrote montage: {unique_montage_path}",
                             flush=True,
                         )
+                        _write_status("JUDGING", "Gemma 4 reasoning on physics...")
                         with state_lock:
                             shared_state["judge_running"] = True
                             shared_state["last_judge_trigger_ts"] = now_ts
+                            shared_state["last_montage_path"] = str(unique_montage_path)
                         th = threading.Thread(
                             target=judge_inference_worker,
                             kwargs={
@@ -957,9 +1069,23 @@ def run_guard(video_file_path: Optional[str] = None, use_webcam: bool = True) ->
             judge_thread = shared_state.get("judge_thread")
         if isinstance(judge_thread, threading.Thread) and judge_thread.is_alive():
             print("[JUDGE] waiting for worker thread to finish...", flush=True)
-            judge_thread.join(timeout=30.0)
+            judge_thread.join(timeout=JUDGE_SHUTDOWN_WAIT_SEC)
             if judge_thread.is_alive():
-                print("[JUDGE] worker still running after timeout; exiting main process.", flush=True)
+                print("[JUDGE] worker still running after timeout; creating fallback incident.", flush=True)
+                _write_status("FINALIZING", "Generating CHART Report...")
+                last_montage_path = ""
+                with state_lock:
+                    last_montage_path = str(shared_state.get("last_montage_path", "") or "")
+                if not last_montage_path:
+                    last_montage_path = JUDGE_MONTAGE_PATH
+                try:
+                    save_fallback_incident_to_dashboard(
+                        montage_path=last_montage_path,
+                        reason="Judge timeout at end-of-stream",
+                    )
+                    print("[JUDGE->DASH] wrote fallback incident", flush=True)
+                except Exception as e:
+                    print(f"[JUDGE->DASH] fallback write failed: {e}", flush=True)
 
         cap.release()
         if out is not None:
@@ -987,6 +1113,12 @@ def run_guard(video_file_path: Optional[str] = None, use_webcam: bool = True) ->
 def _parse_args():
     parser = argparse.ArgumentParser(description="Run YOLO26 Guard + Gemma Judge.")
     parser.add_argument(
+        "--video_path",
+        type=str,
+        default=None,
+        help="Single video file path to process.",
+    )
+    parser.add_argument(
         "--video_dir",
         type=str,
         default=None,
@@ -997,7 +1129,13 @@ def _parse_args():
 
 if __name__ == "__main__":
     args = _parse_args()
-    if args.video_dir:
+    if args.video_path:
+        video_path = Path(args.video_path).expanduser().resolve()
+        if not video_path.exists() or not video_path.is_file():
+            raise FileNotFoundError(f"--video_path does not exist or is not a file: {video_path}")
+        print(f"Single-video mode: {video_path}", flush=True)
+        run_guard(video_file_path=str(video_path), use_webcam=False)
+    elif args.video_dir:
         video_dir = Path(args.video_dir).expanduser().resolve()
         if not video_dir.exists() or not video_dir.is_dir():
             raise FileNotFoundError(f"--video_dir does not exist or is not a directory: {video_dir}")
@@ -1011,4 +1149,3 @@ if __name__ == "__main__":
             print(f"[DEMO {idx}/{len(files)}] Completed: {path}", flush=True)
     else:
         run_guard()
-

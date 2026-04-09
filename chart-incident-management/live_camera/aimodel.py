@@ -3,6 +3,7 @@ import json
 import tempfile
 import requests
 import google.generativeai as genai
+import cv2
 
 from dotenv import load_dotenv
 from PIL import Image as PILImage
@@ -31,8 +32,8 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CAMERA_JSON_PATH = os.path.join(SCRIPT_DIR, "GetCameras.json")
-PROMPT_TXT_PATH = os.path.join(SCRIPT_DIR, "Prompt.txt")
+#CAMERA_JSON_PATH = os.path.join(SCRIPT_DIR, "MDOT_SHA_CHART_Traffic_Cameras.geojson")
+PROMPT_TXT_PATH = os.path.join(SCRIPT_DIR, "prompt.txt")
 OUTPUT_PDF_PATH = os.path.join(SCRIPT_DIR, "incident_report.pdf")
 
 CAMERA_INDEX = 0
@@ -60,9 +61,9 @@ value_style = ParagraphStyle(
 # LOADERS
 # =========================
 
-def load_json(json_path):
-    with open(json_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+# def load_json(json_path):
+#     with open(json_path, "r", encoding="utf-8") as f:
+#         return json.load(f)
 
 
 def load_text(txt_path):
@@ -97,20 +98,97 @@ def get_camera_info(camera_data, index=0, key=None):
         return camera_data[first_key]
 
     raise ValueError("Unsupported camera JSON structure")
+
+# def test_geojson_camera_links(geojson_data, timeout=15):
+    results = []
+
+    features = geojson_data.get("features", [])
+
+    for feature in features:
+        props = feature.get("properties", {})
+
+        camera_id = props.get("ID", "")
+        location = props.get("location", "")
+        video_url = props.get("CCTVPublicURL", "")
+        stream_url = props.get("url", "")
+        hls_url = props.get("hlsurl", "")
+
+        urls_to_test = [
+            ("CCTVPublicURL", video_url),
+            ("url", stream_url),
+            ("hlsurl", hls_url),
+        ]
+
+        for url_name, url in urls_to_test:
+            if not url:
+                results.append({
+                    "camera_id": camera_id,
+                    "location": location,
+                    "url_type": url_name,
+                    "url": url,
+                    "status": "missing",
+                    "error": "No URL provided"
+                })
+                continue
+
+            try:
+                response = requests.get(url, timeout=timeout, stream=True)
+                response.raise_for_status()
+
+                results.append({
+                    "camera_id": camera_id,
+                    "location": location,
+                    "url_type": url_name,
+                    "url": url,
+                    "status": "ok",
+                    "error": ""
+                })
+
+            except requests.exceptions.RequestException as e:
+                results.append({
+                    "camera_id": camera_id,
+                    "location": location,
+                    "url_type": url_name,
+                    "url": url,
+                    "status": "error",
+                    "error": str(e)
+                })
+
+    return results
+# def print_link_test_results(results):
+    for item in results:
+        print("=" * 80)
+        print(f"Camera ID : {item['camera_id']}")
+        print(f"Location  : {item['location']}")
+        print(f"URL Type  : {item['url_type']}")
+        print(f"URL       : {item['url']}")
+        print(f"Status    : {item['status']}")
+        print(f"Error     : {item['error']}")
 # =========================
 # FIND CAMERA BY ID
 # =========================
 
-def get_camera_by_id(camera_data, target_id):
-    if not isinstance(camera_data, list):
-        raise ValueError("Expected camera JSON to be a list")
-
-    for cam in camera_data:
-        if cam.get("id") == target_id:
-            return cam
-
+# def get_camera_by_id(camera_data, target_id):
+    """
+    Find a camera by ID from either:
+    - Simple array: [{id: "...", ...}, ...]
+    - GeoJSON: {features: [{properties: {ID: "...", ...}}, ...]}
+    """
+    # Handle simple array of cameras
+    if isinstance(camera_data, list):
+        for cam in camera_data:
+            if cam.get("id") == target_id or cam.get("ID") == target_id:
+                return cam
+    
+    # Handle GeoJSON format
+    if isinstance(camera_data, dict):
+        features = camera_data.get("features", [])
+        for feature in features:
+            props = feature.get("properties", {})
+            if props.get("ID") == target_id or props.get("id") == target_id:
+                return props
+    
     raise ValueError(f"Camera id not found: {target_id}")
-
 # =========================
 # HELPERS
 # =========================
@@ -137,8 +215,14 @@ def to_str(value):
 
 
 def download_snapshot(camera_id):
-    url = f"https://chart.maryland.gov/Video/GetSnapshot?cameraId={camera_id}"
+    url = f"https://chart.maryland.gov/Video/{camera_id}"
+    print("Trying:", url)
+
     response = requests.get(url, timeout=30)
+
+    if response.status_code == 404:
+        raise Exception(f"404 Not Found for snapshot URL: {url}")
+
     response.raise_for_status()
 
     temp = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
@@ -146,6 +230,152 @@ def download_snapshot(camera_id):
     temp.close()
     return temp.name
 
+def get_file_type(path):
+    ext = os.path.splitext(path)[1].lower()
+    image_exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+    video_exts = {".mp4", ".mov", ".avi", ".mkv", ".m4v"}
+
+    if ext in image_exts:
+        return "image"
+    if ext in video_exts:
+        return "video"
+    return "unknown"
+
+
+def extract_frame_from_video(video_path, sample_position=0.5):
+    """
+    Extract one sampled frame from a video.
+
+    sample_position:
+        0.0 = first frame
+        0.5 = middle frame
+        1.0 = last frame (approx)
+    """
+    cap = cv2.VideoCapture(video_path)
+
+    if not cap.isOpened():
+        raise ValueError(f"Could not open video: {video_path}")
+
+    frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+
+    if frame_count <= 0:
+        cap.release()
+        raise ValueError(f"Could not determine frame count for video: {video_path}")
+
+    target_frame = max(0, min(frame_count - 1, int(frame_count * sample_position)))
+    cap.set(cv2.CAP_PROP_POS_FRAMES, target_frame)
+
+    success, frame = cap.read()
+    cap.release()
+
+    if not success or frame is None:
+        raise ValueError(f"Could not read sampled frame from video: {video_path}")
+
+    temp = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+    cv2.imwrite(temp.name, frame)
+    return temp.name
+
+def download_media_from_url(url, timeout=20):
+    """
+    Download directly fetchable media from HTTP/HTTPS URLs.
+    Returns a local temp file path.
+    """
+    if not url:
+        raise ValueError("Empty URL")
+
+    if url.startswith("rtmp://"):
+        raise ValueError(f"RTMP not supported by requests: {url}")
+
+    response = requests.get(url, timeout=timeout, stream=True)
+    response.raise_for_status()
+
+    content_type = (response.headers.get("Content-Type") or "").lower()
+
+    if "image" in content_type:
+        suffix = ".jpg"
+    elif "video" in content_type or url.endswith(".m3u8"):
+        suffix = ".mp4"
+    else:
+        suffix = ".bin"
+
+    temp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+
+    for chunk in response.iter_content(chunk_size=8192):
+        if chunk:
+            temp.write(chunk)
+
+    temp.close()
+    return temp.name
+
+
+def get_local_media_from_user():
+    user_path = input("Enter the file path to an image or video: ").strip()
+
+    if not os.path.exists(user_path):
+        raise FileNotFoundError(f"File not found: {user_path}")
+
+    file_type = get_file_type(user_path)
+
+    if file_type == "image":
+        return user_path
+
+    if file_type == "video":
+        return extract_frame_from_video(user_path, sample_position=0.5)
+
+    raise ValueError("Unsupported file type. Use an image or video file.")
+
+
+def get_input_media_from_urls(url_info):
+    """
+    url_info example:
+    {
+        "url": "rtmp://...",
+        "CCTVPublicURL": "https://...",
+        "hlsurl": "https://.../playlist.m3u8"
+    }
+    """
+    urls_to_try = [
+        ("CCTVPublicURL", url_info.get("CCTVPublicURL", "")),
+        ("hlsurl", url_info.get("hlsurl", "")),
+        ("url", url_info.get("url", "")),
+    ]
+
+    errors = []
+
+    for url_type, url in urls_to_try:
+        if not url:
+            errors.append(f"{url_type}: missing")
+            continue
+
+        try:
+            print(f"Trying {url_type}: {url}")
+            downloaded_path = download_media_from_url(url)
+
+            file_type = get_file_type(downloaded_path)
+
+            if file_type == "image":
+                print(f"Using downloaded image from {url_type}")
+                return downloaded_path
+
+            if file_type == "video":
+                print(f"Using sampled frame from downloaded video via {url_type}")
+                return extract_frame_from_video(downloaded_path, sample_position=0.5)
+
+            # Special handling for HLS playlists
+            if url.endswith(".m3u8"):
+                raise ValueError("HLS playlist downloaded, but direct frame extraction is not supported from playlist text.")
+
+            raise ValueError(f"Downloaded file from {url_type} is not a supported image/video type")
+
+        except Exception as e:
+            errors.append(f"{url_type}: {e}")
+
+    print("\nCould not access any provided URLs.")
+    print("Errors:")
+    for err in errors:
+        print(f"- {err}")
+
+    return get_local_media_from_user()
 
 def build_prompt(prompt_template, camera_info):
     metadata = {
@@ -187,6 +417,28 @@ def clean_response(text):
 
 
 def normalize_output(model_output, camera_info):
+    # Fold GeoJSON camera properties into the standard camera shape
+    if isinstance(camera_info, dict) and (
+        "ID" in camera_info or "CCTVPublicURL" in camera_info or "location" in camera_info
+    ):
+        camera_info = {
+            "id": camera_info.get("ID", ""),
+            "name": camera_info.get("location", ""),
+            "description": camera_info.get("location", ""),
+            "publicVideoURL": camera_info.get("CCTVPublicURL", ""),
+            "lat": camera_info.get("Latitude", ""),
+            "lon": camera_info.get("Longitude", ""),
+            "milePost": camera_info.get("milePost", ""),
+            "routeNumber": camera_info.get("routeNumber", ""),
+            "routePrefix": camera_info.get("routePrefix", ""),
+            "routeSuffix": camera_info.get("routeSuffix", ""),
+            "cameraCategories": camera_info.get("cameraCategories", []),
+            "cctvIp": camera_info.get("cctvIp", ""),
+            "commMode": camera_info.get("commMode", ""),
+            "opStatus": camera_info.get("opStatus", ""),
+            "lastCachedDataUpdateTime": camera_info.get("lastCachedDataUpdateTime", ""),
+        }
+
     cam = model_output.setdefault("camera", {})
     cam["id"] = camera_info.get("id", "")
     cam["name"] = camera_info.get("name", "")
@@ -300,7 +552,6 @@ def normalize_output(model_output, camera_info):
     })
 
     return model_output
-
 # =========================
 # GEMINI
 # =========================
@@ -375,6 +626,10 @@ def make_section(title, pairs):
         ]
         for name, value in pairs
     ]
+
+    # Skip empty sections - return empty list if no rows
+    if not rows:
+        return []
 
     table = Table(rows, colWidths=[180, 360])
     table.setStyle(TableStyle([
@@ -549,22 +804,233 @@ def generate_pdf(image_path, model_output, output_path):
 # =========================
 
 def main():
-    camera_data = load_json(CAMERA_JSON_PATH)
+    # Mode 1: test every link in the GeoJSON and print status/errors
+    geojson_data = load_json(CAMERA_JSON_PATH)
+    results = test_geojson_camera_links(geojson_data)
+
+    for item in results:
+        print("=" * 80)
+        print(f"Camera ID : {item['camera_id']}")
+        print(f"Location  : {item['location']}")
+        print(f"URL Type  : {item['url_type']}")
+        print(f"URL       : {item['url']}")
+        print(f"Status    : {item['status']}")
+        print(f"Error     : {item['error']}")
+
+    # Optional: save test results
+    with open(os.path.join(SCRIPT_DIR, "camera_link_test_results.json"), "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+
+    # Uncomment this block when you want to run one camera through Gemini + PDF
+    """
     prompt_template = load_text(PROMPT_TXT_PATH)
 
-    TEST_CAMERA_ID = "4800e8aa00ab0059005cd336c4235c0a"
-    camera_info = get_camera_by_id(camera_data, TEST_CAMERA_ID)
+    TEST_CAMERA_ID = "7a00a1dc01250075004d823633235daa"
 
-    camera_id = camera_info.get("id")
+    camera_info = get_camera_by_id(geojson_data, TEST_CAMERA_ID)
+    camera_id = camera_info.get("ID") or camera_info.get("id")
+
     if not camera_id:
-        raise ValueError("Camera JSON must contain an 'id' field")
+        raise ValueError("Camera data must contain an ID")
 
-    image_path = download_snapshot(camera_id)
+    image_path = get_input_media(camera_id)
     model_output = analyze_image(image_path, camera_info, prompt_template)
     generate_pdf(image_path, model_output, OUTPUT_PDF_PATH)
 
     print(f"PDF generated: {OUTPUT_PDF_PATH}")
+    """
+
+# def test_pdf_generation_only():
+    """Test PDF generation without AI model or JSON reading - uses local test image"""
+    print("Testing PDF generation with dummy data and local image...")
+    
+    # Dummy camera info (no JSON reading)
+    camera_info = {
+        "id": "7a00a1dc01250075004d823633235daa",
+        "name": "Test Camera",
+        "description": "Test Location - I-95 North",
+        "publicVideoURL": "https://chart.maryland.gov/Video/GetSnapshot?cameraId=7a00a1dc01250075004d823633235daa",
+        "lat": "39.2904",
+        "lon": "-76.6122",
+        "routePrefix": "I",
+        "routeNumber": "95",
+        "routeSuffix": "",
+        "milePost": "12.5",
+        "opStatus": "OPERATIONAL",
+        "commMode": "Active",
+        "cctvIp": "192.168.1.1",
+        "cameraCategories": ["traffic"],
+        "lastCachedDataUpdateTime": "2026-04-08T10:00:00Z",
+    }
+    
+    # Dummy model output (no AI model call)
+    model_output = {
+        "camera": {k: v for k, v in camera_info.items()},
+        "incident": {
+            "incident_detected": True,
+            "incident_status": "traffic_congestion",
+            "incident_types": ["congestion"],
+            "confidence_incident": 0.85,
+            "why": "Heavy traffic detected in test image",
+        },
+        "vehicles": {
+            "count_involved": 5,
+            "confidence_vehicle_count": 0.9,
+            "confidence_vehicle_types": 0.88,
+            "list": [
+                {"type": "sedan", "count": 3},
+                {"type": "truck", "count": 2},
+            ],
+        },
+        "people": {
+            "people_visible_count": 0,
+            "injuries_visible": "no",
+            "injury_signs": [],
+            "confidence_injuries": 0.0,
+        },
+        "hazards": {
+            "fire_visible": "no",
+            "smoke_visible": "no",
+            "debris_visible": "no",
+            "fluid_spill_possible": "no",
+            "notes": "No hazards detected",
+            "confidence_hazards": 0.95,
+        },
+        "lane_impact": {
+            "lanes_affected": ["middle", "right"],
+            "shoulder_affected": "no",
+            "traffic_flow": "moderate_disruption",
+            "confidence_lane_impact": 0.8,
+            "lane_impact_notes": "2 of 3 lanes affected",
+        },
+        "location_in_view": {
+            "location_description": "Center of frame",
+            "confidence_location": 0.9,
+        },
+        "severity_info": {
+            "severity_inputs": {
+                "incident_type": {"score_0_to_4": 2, "weight": 0.3},
+                "vehicle_impact": {"score_0_to_4": 1, "weight": 0.2},
+                "injuries": {"score_0_to_4": 0, "weight": 0.3},
+                "hazards": {"score_0_to_4": 0, "weight": 0.2},
+            }
+        },
+    }
+    
+    try:
+        # Use a local test image instead of downloading
+        test_image_path = os.path.join(os.path.dirname(SCRIPT_DIR), "test_images", "image_3.jpg")
+        
+        if not os.path.exists(test_image_path):
+            print(f"Test image not found at: {test_image_path}")
+            # List available test images
+            test_images_dir = os.path.join(os.path.dirname(SCRIPT_DIR), "test_images")
+            if os.path.exists(test_images_dir):
+                files = [f for f in os.listdir(test_images_dir) if f.endswith(('.jpg', '.jpeg', '.png'))]
+                if files:
+                    test_image_path = os.path.join(test_images_dir, files[0])
+                    print(f"Using first available test image: {test_image_path}")
+                else:
+                    raise FileNotFoundError("No image files found in test_images folder")
+            else:
+                raise FileNotFoundError(f"test_images folder not found at: {test_images_dir}")
+        
+        print(f"Using test image: {test_image_path}")
+        
+        # Generate PDF with dummy data and local image (no AI model call, no JSON reading)
+        print("Generating PDF with severity assessment...")
+        generate_pdf(test_image_path, model_output, OUTPUT_PDF_PATH)
+        print(f"PDF generated successfully: {OUTPUT_PDF_PATH}")
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        import traceback
+        traceback.print_exc()
+
+
+def run_with_ai():
+    """
+    Current test mode:
+    - No JSON loader
+    - Local image or video input
+    - Gemini AI + severity assessment + PDF
+    """
+    print("=" * 80)
+    print("RUNNING AI IMAGE/VIDEO ASSESSMENT")
+    print("=" * 80)
+
+    try:
+        print("\n1. Loading prompt template...")
+        prompt_template = load_text(PROMPT_TXT_PATH)
+        print("   ✓ Prompt loaded")
+
+        camera_info = {
+            "id": "",
+            "name": "Test Input",
+            "description": "Local image/video input",
+            "publicVideoURL": "",
+            "lat": "",
+            "lon": "",
+            "routePrefix": "",
+            "routeNumber": "",
+            "routeSuffix": "",
+            "milePost": "",
+            "opStatus": "",
+            "commMode": "",
+            "cctvIp": "",
+            "cameraCategories": [],
+            "lastCachedDataUpdateTime": "",
+        }
+
+        print("\n2. Trying camera URLs...")
+
+        url_info = {
+            "url": "rtmp://strmr5.sha.maryland.gov/rtplive/0000309302ce009e0052fa36c4235c0a",
+            "CCTVPublicURL": "https://chart.maryland.gov/Video/GetVideo/0000309302ce009e0052fa36c4235c0a",
+            "hlsurl": "https://strmr5.sha.maryland.gov/rtplive/0000309302ce009e0052fa36c4235c0a/playlist.m3u8",
+        }
+
+        media_path = get_input_media_from_urls(url_info)
+        print(f"   ✓ Media ready: {media_path}")
+
+        print("\n3. Calling Gemini AI...")
+        model_output = analyze_image(media_path, camera_info, prompt_template)
+        print("   ✓ AI analysis complete")
+
+        print("\n4. Generating PDF with severity assessment...")
+        generate_pdf(media_path, model_output, OUTPUT_PDF_PATH)
+        print(f"   ✓ PDF generated: {OUTPUT_PDF_PATH}")
+
+    except Exception as e:
+        print(f"\nError: {e}")
+        import traceback
+        traceback.print_exc()
+# def main():
+#     camera_data = load_json(CAMERA_JSON_PATH)
+#     prompt_template = load_text(PROMPT_TXT_PATH)
+
+#     TEST_CAMERA_ID = "7a00a1dc01250075004d823633235daa"
+#     camera_info = get_camera_by_id(camera_data, TEST_CAMERA_ID)
+
+#     camera_id = camera_info.get("id")
+#     if not camera_id:
+#         raise ValueError("Camera JSON must contain an 'id' field")
+
+#     image_path = get_input_media(camera_id)
+#     model_output = analyze_image(image_path, camera_info, prompt_template)
+#     generate_pdf(image_path, model_output, OUTPUT_PDF_PATH)
+
+#     print(f"PDF generated: {OUTPUT_PDF_PATH}")
 
 
 if __name__ == "__main__":
-    main()
+    # Choose which mode to run:
+    
+    # For full production pipeline with AI model and Gemini analysis:
+    run_with_ai()
+    
+    # For testing PDF generation with dummy data (no JSON, no AI model):
+    # test_pdf_generation_only()
+    
+    # For testing all camera links:
+    # main()

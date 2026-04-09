@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "timestamp": "2026-04-09 11:53:25",
+    "verdict": "FALLBACK: Judge timeout at end-of-stream",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260409_115157_348983.jpg",
+    "collision_confirmed": false,
+    "severity": "high",
+    "lanes_blocked": 1,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.65
+  },
+  {
+    "timestamp": "2026-04-09 11:54:43",
+    "verdict": "FALLBACK: Judge error: Image features and image tokens do not match, tokens: 0, features: 260",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260409_115157_348983.jpg",
+    "collision_confirmed": false,
+    "severity": "high",
+    "lanes_blocked": 1,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.65
+  }
+]

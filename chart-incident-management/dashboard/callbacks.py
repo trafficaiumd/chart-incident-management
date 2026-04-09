@@ -3,7 +3,11 @@
 import base64
 import json
 from datetime import datetime
+import os
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 
 from dash import ALL, Input, Output, State, callback_context, dcc, html, no_update
 import plotly.graph_objects as go
@@ -12,6 +16,9 @@ from utils.pdf_generator import generate_incident_pdf
 
 LIVE_INCIDENTS_FILE = Path(__file__).parent / "data" / "live_incidents.json"
 TRAINING_FEEDBACK_FILE = Path(__file__).parent / "data" / "training_feedback_log.json"
+STATUS_FILE = Path(__file__).parent / "data" / "status.json"
+PROCESS_META_FILE = Path(__file__).parent / "data" / "active_process.json"
+PROJECT_ROOT = Path(__file__).parent.parent
 PROCESS_STAGES = [
     "Detect initial impact (YOLO26 Guard)...",
     "Building temporal context window...",
@@ -62,7 +69,108 @@ def _incident_confidence(inc):
     return {"high": 0.9, "med": 0.72, "low": 0.55}.get(sev, 0.7)
 
 
+def _read_status():
+    if not STATUS_FILE.exists():
+        return {"state": "INGESTING"}
+    try:
+        data = json.loads(STATUS_FILE.read_text(encoding="utf-8"))
+        if isinstance(data, dict):
+            return data
+    except Exception:
+        pass
+    return {"state": "INGESTING"}
+
+
+def _is_pid_running(pid: int) -> bool:
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
+def _start_pipeline_for_media(media_file_path: str) -> int:
+    """
+    Start Guard/Judge pipeline in background for a single media file.
+    """
+    cmd = [sys.executable, str(PROJECT_ROOT / "accident_guard_yolo26.py"), "--video_path", str(media_file_path)]
+    proc = subprocess.Popen(cmd, cwd=str(PROJECT_ROOT))
+    PROCESS_META_FILE.parent.mkdir(parents=True, exist_ok=True)
+    PROCESS_META_FILE.write_text(
+        json.dumps(
+            {
+                "pid": proc.pid,
+                "media_file": str(media_file_path),
+                "started_at": datetime.now().isoformat(),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    return int(proc.pid)
+
+
+def _format_bytes(n: int) -> str:
+    if n < 1024:
+        return f"{n} B"
+    if n < 1024 * 1024:
+        return f"{n / 1024.0:.1f} KB"
+    return f"{n / (1024.0 * 1024.0):.2f} MB"
+
+
 def register_callbacks(app):
+    @app.callback(
+        Output("uploaded-file-details", "children"),
+        [Input("media-upload", "filename"), Input("media-upload", "contents"), Input("media-path-input", "value")],
+    )
+    def show_uploaded_file_details(filename, contents, media_path):
+        if media_path:
+            p = Path(media_path)
+            if p.exists() and p.is_file():
+                try:
+                    size = _format_bytes(p.stat().st_size)
+                except Exception:
+                    size = "unknown size"
+                return f"Selected path: {p.name} | {size}"
+            return f"Path entered: {media_path} (not found)"
+        if filename and contents:
+            try:
+                _, content_string = contents.split(",", 1)
+                size_raw = int((len(content_string) * 3) / 4)
+                return f"Uploaded file: {filename} | {_format_bytes(size_raw)}"
+            except Exception:
+                return f"Uploaded file: {filename}"
+        return "No file uploaded yet."
+
+    @app.callback(
+        [
+            Output("run-analysis-btn", "disabled"),
+            Output("upload-verify-progress", "style"),
+            Output("upload-verify-progress", "value"),
+            Output("upload-verify-progress", "label"),
+            Output("upload-verify-progress", "color"),
+        ],
+        [Input("media-upload", "filename"), Input("media-upload", "contents"), Input("media-path-input", "value")],
+    )
+    def update_upload_verification(filename, contents, media_path):
+        confirmed = False
+        label = "Awaiting upload..."
+        if media_path:
+            p = Path(media_path)
+            if p.exists() and p.is_file():
+                confirmed = True
+                label = f"Path confirmed: {p.name}"
+            else:
+                label = "Path not found"
+        elif filename and contents:
+            confirmed = True
+            label = f"Uploaded: {filename}"
+        if confirmed:
+            return False, {"height": "20px", "display": "block", "marginBottom": "8px"}, 100, label, "success"
+        return True, {"height": "20px", "display": "none", "marginBottom": "8px"}, 0, label, "secondary"
+
     @app.callback(Output("header-status-bar", "children"), Input("refresh-interval", "n_intervals"))
     def update_header(_):
         count = len(_read_live_incidents())
@@ -75,22 +183,88 @@ def register_callbacks(app):
             Output("selected-incident-store", "data"),
             Output("landing-container", "style"),
             Output("verdict-container", "style"),
+            Output("upload-section", "style"),
+            Output("processing-tracker-section", "style"),
+            Output("processing-interval", "disabled"),
+            Output("processing-progress-bar", "value"),
+            Output("processing-progress-bar", "label"),
+            Output("processing-progress-bar", "color"),
+            Output("processing-progress-label", "children"),
+            Output("landing-logo", "style"),
         ],
         [
             Input("run-analysis-btn", "n_clicks"),
             Input("refresh-interval", "n_intervals"),
+            Input("processing-interval", "n_intervals"),
             Input({"type": "view-report-btn", "index": ALL}, "n_clicks"),
         ],
-        [State("ui-phase-store", "data"), State("selected-incident-store", "data")],
+        [
+            State("ui-phase-store", "data"),
+            State("selected-incident-store", "data"),
+            State("media-upload", "filename"),
+            State("media-upload", "contents"),
+            State("media-path-input", "value"),
+        ],
     )
-    def manage_phase(run_clicks, n_intervals, _view_clicks, phase_data, selected):
+    def manage_phase(
+        run_clicks,
+        n_intervals,
+        _proc_tick,
+        _view_clicks,
+        phase_data,
+        selected,
+        upload_filename,
+        upload_contents,
+        media_path,
+    ):
         phase_data = phase_data or {"phase": "landing", "started_at": None}
         selected = selected or {}
         incidents = _read_live_incidents()
         trig = callback_context.triggered_id if callback_context.triggered else None
 
         if trig == "run-analysis-btn" and run_clicks:
-            phase_data = {"phase": "processing", "started_at": n_intervals}
+            media_file_path = None
+            if media_path:
+                p = Path(media_path)
+                if p.exists() and p.is_file():
+                    media_file_path = str(p.resolve())
+            elif upload_filename and upload_contents:
+                try:
+                    _, content_string = upload_contents.split(",", 1)
+                    decoded = base64.b64decode(content_string)
+                    suffix = Path(upload_filename).suffix or ".mp4"
+                    up_dir = Path(__file__).parent / "data" / "uploads"
+                    up_dir.mkdir(parents=True, exist_ok=True)
+                    with tempfile.NamedTemporaryFile(delete=False, suffix=suffix, dir=str(up_dir)) as tf:
+                        tf.write(decoded)
+                        media_file_path = tf.name
+                except Exception:
+                    media_file_path = None
+
+            if media_file_path:
+                # Reset output state for a clean run.
+                LIVE_INCIDENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+                LIVE_INCIDENTS_FILE.write_text("[]\n", encoding="utf-8")
+                STATUS_FILE.write_text(
+                    json.dumps(
+                        {"state": "INGESTING", "detail": "Extracting Video Frames...", "ts": datetime.now().isoformat()},
+                        indent=2,
+                    ),
+                    encoding="utf-8",
+                )
+                # Avoid duplicate launch if a prior run is still alive.
+                already_running = False
+                if PROCESS_META_FILE.exists():
+                    try:
+                        pm = json.loads(PROCESS_META_FILE.read_text(encoding="utf-8"))
+                        already_running = _is_pid_running(int(pm.get("pid", -1)))
+                    except Exception:
+                        already_running = False
+                if not already_running:
+                    _start_pipeline_for_media(media_file_path)
+                phase_data = {"phase": "processing", "started_at": n_intervals}
+            else:
+                logs = ["Unable to start analysis: media not found or upload decode failed."]
 
         if isinstance(trig, dict) and trig.get("type") == "view-report-btn":
             idx = int(trig.get("index", -1))
@@ -100,22 +274,61 @@ def register_callbacks(app):
                 phase_data = {"phase": "verdict", "started_at": phase_data.get("started_at")}
 
         logs = ["Awaiting analysis run..."]
+        prog_value, prog_label, prog_color, stage_label = 0, "0%", "info", "Idle"
+        logo_style = {
+            "width": "240px",
+            "marginBottom": "18px",
+            "display": "block",
+            "marginLeft": "auto",
+            "marginRight": "auto",
+        }
         if phase_data.get("phase") == "processing":
-            start = phase_data.get("started_at", n_intervals)
-            step = max(0, n_intervals - start)
-            upto = min(len(PROCESS_STAGES), step + 1)
-            logs = [f"[{i+1}/{len(PROCESS_STAGES)}] {PROCESS_STAGES[i]}" for i in range(upto)]
-            if incidents:
-                selected = incidents[-1]
+            state_map = {
+                "INGESTING": (25, "Extracting Video Frames...", "warning"),
+                "GUARDING": (50, "YOLO26 Perception Active...", "info"),
+                "JUDGING": (75, "Gemma 4 reasoning on physics...", "primary"),
+                "FINALIZING": (100, "Generating CHART Report...", "success"),
+            }
+            status = _read_status()
+            st = str(status.get("state", "INGESTING")).upper()
+            prog_value, stage_label, prog_color = state_map.get(st, (25, "Extracting Video Frames...", "warning"))
+            prog_label = f"{prog_value}%"
+            logs = [f"[{st}] {stage_label}"]
+            if prog_value < 100:
+                logo_style["animation"] = "pulse 1.2s infinite"
+            if prog_value >= 100:
+                if incidents:
+                    selected = incidents[-1]
                 phase_data["phase"] = "verdict"
 
         if phase_data.get("phase") == "verdict":
             landing_style = {"display": "none"}
             verdict_style = {"display": "block", "backgroundColor": "#0f1320", "minHeight": "calc(100vh - 90px)", "padding": "14px"}
+            upload_style = {"display": "none"}
+            tracker_style = {"display": "none"}
+            proc_disabled = True
         else:
             landing_style = {"minHeight": "calc(100vh - 90px)", "backgroundColor": "#0c0f17", "display": "block"}
             verdict_style = {"display": "none"}
-        return phase_data, "\n".join(logs), selected, landing_style, verdict_style
+            processing = phase_data.get("phase") == "processing"
+            upload_style = {"display": "none"} if processing else {"display": "block"}
+            tracker_style = {"display": "block", "marginBottom": "10px"} if processing else {"display": "none", "marginBottom": "10px"}
+            proc_disabled = not processing
+        return (
+            phase_data,
+            "\n".join(logs),
+            selected,
+            landing_style,
+            verdict_style,
+            upload_style,
+            tracker_style,
+            proc_disabled,
+            prog_value,
+            prog_label,
+            prog_color,
+            stage_label,
+            logo_style,
+        )
 
     @app.callback(
         [

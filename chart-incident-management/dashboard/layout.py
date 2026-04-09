@@ -37,34 +37,80 @@ def landing_page():
         children=[
             html.Div(
                 [
-                    html.Img(src="/assets/image_0.png", style={"width": "240px", "marginBottom": "18px"}),
-                    html.H3("Analyze Media", style={"color": "white"}),
-                    dcc.Upload(
-                        id="media-upload",
-                        children=html.Div(["Drag and drop or ", html.A("select file")]),
+                    html.Img(
+                        id="landing-logo",
+                        src="/assets/image_0.png",
                         style={
-                            "width": "100%",
-                            "height": "64px",
-                            "lineHeight": "64px",
-                            "borderWidth": "1px",
-                            "borderStyle": "dashed",
-                            "borderRadius": "8px",
-                            "textAlign": "center",
-                            "color": "#ddd",
-                            "marginBottom": "10px",
+                            "width": "240px",
+                            "marginBottom": "18px",
+                            "display": "block",
+                            "marginLeft": "auto",
+                            "marginRight": "auto",
                         },
-                        multiple=False,
                     ),
-                    dcc.Input(
-                        id="media-path-input",
-                        type="text",
-                        placeholder="Path to media file",
-                        style={"width": "100%", "padding": "10px", "marginBottom": "10px"},
+                    html.H3("Analyze Media", style={"color": "white"}),
+                    html.Div(
+                        id="upload-section",
+                        children=[
+                            dcc.Upload(
+                                id="media-upload",
+                                children=html.Div(
+                                    "Drag and drop media here, or click to select a file",
+                                    style={"fontWeight": "600"},
+                                ),
+                                style={
+                                    "width": "100%",
+                                    "height": "64px",
+                                    "lineHeight": "64px",
+                                    "borderWidth": "1px",
+                                    "borderStyle": "dashed",
+                                    "borderRadius": "8px",
+                                    "textAlign": "center",
+                                    "color": "#ddd",
+                                    "marginBottom": "10px",
+                                    "cursor": "pointer",
+                                    "backgroundColor": "#171b28",
+                                },
+                                multiple=False,
+                            ),
+                            dcc.Input(
+                                id="media-path-input",
+                                type="text",
+                                placeholder="Path to media file",
+                                style={"width": "100%", "padding": "10px", "marginBottom": "10px"},
+                            ),
+                            dbc.Progress(
+                                id="upload-verify-progress",
+                                value=0,
+                                label="Awaiting upload...",
+                                color="secondary",
+                                style={"height": "20px", "display": "none", "marginBottom": "8px"},
+                            ),
+                        ],
+                    ),
+                    html.Div(
+                        id="processing-tracker-section",
+                        style={"display": "none", "marginBottom": "10px"},
+                        children=[
+                            html.Div(id="processing-progress-label", style={"color": "#b8c1ec", "marginBottom": "6px"}),
+                            dbc.Progress(
+                                id="processing-progress-bar",
+                                value=0,
+                                label="0%",
+                                color="info",
+                                style={"height": "22px"},
+                            ),
+                        ],
+                    ),
+                    html.Div(
+                        id="uploaded-file-details",
+                        style={"color": "#b8c1ec", "fontSize": "12px", "marginBottom": "8px"},
                     ),
                     html.Button(
                         "Run Analysis",
                         id="run-analysis-btn",
                         n_clicks=0,
+                        disabled=True,
                         style={
                             "width": "100%",
                             "padding": "12px",
@@ -163,6 +209,7 @@ def create_layout():
             dcc.Store(id="selected-incident-store"),
             dcc.Interval(id="refresh-interval", interval=2000, n_intervals=0),
             dcc.Interval(id="incident-log-interval", interval=2000, n_intervals=0),
+            dcc.Interval(id="processing-interval", interval=500, n_intervals=0, disabled=True),
             dbc.Modal(
                 id="replay-modal",
                 is_open=False,
