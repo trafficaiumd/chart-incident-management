@@ -1,0 +1,124 @@
+{
+  "camera": {
+    "id": "",
+    "name": "Local Test Input",
+    "description": "Local image/video input",
+    "publicVideoURL": "",
+    "lat": "",
+    "lon": "",
+    "routePrefix": "",
+    "routeNumber": "",
+    "routeSuffix": "",
+    "milePost": "",
+    "direction_of_travel_interpreted": "away_from_camera",
+    "confidence_direction": 0.9,
+    "weather_notes": "Snow/ice visible on the median divider.",
+    "known_lane_count": "3",
+    "opStatus": "",
+    "commMode": "",
+    "cctvIp": "",
+    "cameraCategories": [],
+    "lastCachedDataUpdateTime": ""
+  },
+  "incident": {
+    "incident_detected": true,
+    "incident_status": "incident",
+    "incident_types": [
+      "collision",
+      "stopped_vehicle"
+    ],
+    "confidence_incident": 1.0,
+    "why": "A white van and a yellow car are stopped on the leftmost side of the highway. The yellow car appears to have moderate front-end damage and is partially off the road against the median barrier. The van is stopped next to it, partially in the leftmost lane."
+  },
+  "vehicles": {
+    "count_involved": 2,
+    "confidence_vehicle_count": 1.0,
+    "confidence_vehicle_types": 1.0,
+    "list": [
+      {
+        "type": "van",
+        "color": "white",
+        "damage": "none_visible",
+        "position": "stopped partially in leftmost travel lane/shoulder next to median barrier"
+      },
+      {
+        "type": "car",
+        "color": "yellow",
+        "damage": "moderate",
+        "position": "partially off-road against median barrier, with front end damage"
+      }
+    ]
+  },
+  "people": {
+    "people_visible_count": 0,
+    "injuries_visible": "",
+    "injury_signs": [],
+    "confidence_injuries": 0.0
+  },
+  "hazards": {
+    "fire_visible": "no",
+    "smoke_visible": "no",
+    "debris_visible": "possible",
+    "fluid_spill_possible": "possible",
+    "notes": "Snow/ice on median may indicate slippery road conditions.",
+    "confidence_hazards": 0.5
+  },
+  "lane_impact": {
+    "lanes_affected": [
+      "leftmost_travel_lane"
+    ],
+    "shoulder_affected": "yes",
+    "traffic_flow": "affected_slowing",
+    "confidence_lane_impact": 0.95,
+    "lane_impact_notes": "The white van is stopped partially in the leftmost travel lane, next to the median barrier where the yellow car is also stopped off-road. Traffic in this direction is visibly slowing down and merging to the right."
+  },
+  "location_in_view": {
+    "in_frame_region": "midground_left",
+    "distance_bucket": "medium_range",
+    "relative_road_position": {
+      "lane_id": "leftmost_travel_lane",
+      "shoulder": "median_side_shoulder",
+      "median": ""
+    },
+    "location_statement": "On the leftmost side of the highway, near the median barrier."
+  },
+  "severity_info": {
+    "severity_inputs": {
+      "vehicle_damage": {
+        "score_0_to_4": 3,
+        "weight": 0.25,
+        "confidence_0_to_1": 0.9,
+        "evidence": "Visible moderate damage to the front of the yellow car."
+      },
+      "lane_blockage": {
+        "score_0_to_4": 2,
+        "weight": 0.25,
+        "confidence_0_to_1": 0.9,
+        "evidence": "White van partially blocking the leftmost travel lane."
+      },
+      "injury_visibility": {
+        "score_0_to_4": 0,
+        "weight": 0.25,
+        "confidence_0_to_1": 0.0,
+        "evidence": "No people visible."
+      },
+      "fire_smoke_hazard": {
+        "score_0_to_4": 0,
+        "weight": 0.25,
+        "confidence_0_to_1": 0.0,
+        "evidence": "No fire or smoke visible."
+      }
+    },
+    "severe_gating_triggers": {
+      "vehicle_fire": false,
+      "multiple_vehicle_pileup": false,
+      "visible_injury": false,
+      "all_lanes_blocked": false
+    },
+    "derived_by_python": {
+      "severity_score_0_to_100": null,
+      "severity_category": null,
+      "notes_uncertainty": ""
+    }
+  }
+}

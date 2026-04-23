@@ -1,32 +1,561 @@
 [
   {
-    "timestamp": "2026-04-09 11:53:25",
-    "verdict": "FALLBACK: Judge timeout at end-of-stream",
-    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260409_115157_348983.jpg",
+    "timestamp": "2026-04-16 11:03:29",
+    "verdict": "UNDER_REVIEW (Guard signal): Judge unknown/0.0 with strong YOLO trigger",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_110326_869582.jpg",
+    "replay_clip_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/replays/replay_20260416_110326_158858.mp4",
     "collision_confirmed": false,
-    "severity": "high",
-    "lanes_blocked": 1,
+    "severity": "med",
+    "lanes_blocked": 0,
     "hazards": [
       "unknown"
     ],
     "vehicle_types": [],
-    "incident_type": "ACTIVE_HAZARD",
-    "uncertainty": true,
-    "confidence": 0.65
+    "incident_type": "UNDER_REVIEW",
+    "confidence": 0.6792,
+    "yolo_trigger_confidence": 0.9084075689315796,
+    "gemma_confidence_incident": 0.0,
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "unknown",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0.0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0.0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0.0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0.0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": null,
+          "severity_category": null,
+          "notes_uncertainty": "unknown"
+        }
+      },
+      "collision_confirmed": false,
+      "severity": "low",
+      "lanes_blocked": 0,
+      "hazards_list": [],
+      "vehicle_types": [],
+      "incident_status": "unknown",
+      "confidence_incident": 0.0
+    },
+    "severity_score_0_to_100": 45.0,
+    "severity_category": "MEDIUM",
+    "derived_by_python": {
+      "severity_score_0_to_100": 45.0,
+      "severity_category": "MEDIUM",
+      "notes_uncertainty": "Guard-based early warning due to high-confidence end-window event"
+    }
   },
   {
-    "timestamp": "2026-04-09 11:54:43",
-    "verdict": "FALLBACK: Judge error: Image features and image tokens do not match, tokens: 0, features: 260",
-    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260409_115157_348983.jpg",
+    "timestamp": "2026-04-16 12:47:17",
+    "verdict": "FALLBACK: Judge timeout at end-of-stream drain mode (final 10s event)",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_124553_525850.jpg",
+    "hero_frame_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/hero_frame_20260416_124553_931293.jpg",
+    "replay_clip_path": "",
     "collision_confirmed": false,
-    "severity": "high",
-    "lanes_blocked": 1,
+    "severity": "low",
+    "lanes_blocked": 0,
     "hazards": [
       "unknown"
     ],
     "vehicle_types": [],
     "incident_type": "ACTIVE_HAZARD",
     "uncertainty": true,
-    "confidence": 0.65
+    "confidence": 0.0,
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "possible_incident",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": 0.0,
+          "severity_category": "LOW",
+          "notes_uncertainty": "unknown"
+        }
+      }
+    },
+    "severity_score_0_to_100": 0.0,
+    "severity_category": "LOW",
+    "derived_by_python": {
+      "severity_score_0_to_100": 0.0,
+      "severity_category": "LOW",
+      "notes_uncertainty": "unknown"
+    }
+  },
+  {
+    "timestamp": "2026-04-16 13:03:01",
+    "verdict": "FALLBACK: Judge timeout at end-of-stream drain mode (final 10s event)",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_130107_985223.jpg",
+    "hero_frame_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/hero_frame_20260416_130107_438502.jpg",
+    "replay_clip_path": "",
+    "collision_confirmed": false,
+    "severity": "low",
+    "lanes_blocked": 0,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.0,
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "possible_incident",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": 0.0,
+          "severity_category": "LOW",
+          "notes_uncertainty": "unknown"
+        }
+      }
+    },
+    "severity_score_0_to_100": 0.0,
+    "severity_category": "LOW",
+    "derived_by_python": {
+      "severity_score_0_to_100": 0.0,
+      "severity_category": "LOW",
+      "notes_uncertainty": "unknown"
+    }
+  },
+  {
+    "timestamp": "2026-04-16 13:11:01",
+    "verdict": "FALLBACK: Judge error: Timeout of 600.0s exceeded, last exception: 503 errors resolving generativelanguage.googleapis.com:443: [field:hostname lookup error:address lookup failed for generativelanguage.googleapis.com:443: Could not contact DNS servers]",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_130107_985223.jpg",
+    "hero_frame_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/hero_frame_20260416_130107_438502.jpg",
+    "replay_clip_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/replays/replay_20260416_130107_128789.mp4",
+    "collision_confirmed": false,
+    "severity": "low",
+    "lanes_blocked": 0,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.0,
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "possible_incident",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": 0.0,
+          "severity_category": "LOW",
+          "notes_uncertainty": "unknown"
+        }
+      }
+    },
+    "severity_score_0_to_100": 0.0,
+    "severity_category": "LOW",
+    "derived_by_python": {
+      "severity_score_0_to_100": 0.0,
+      "severity_category": "LOW",
+      "notes_uncertainty": "unknown"
+    }
+  },
+  {
+    "timestamp": "2026-04-16 13:48:37",
+    "verdict": "FALLBACK: Judge timeout at end-of-stream drain mode (final 10s event)",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_134643_478501.jpg",
+    "hero_frame_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/hero_frame_20260416_134643_651493.jpg",
+    "replay_clip_path": "",
+    "collision_confirmed": false,
+    "severity": "low",
+    "lanes_blocked": 0,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.0,
+    "yolo_trigger_confidence": 0.46151939034461975,
+    "manual_review_required": false,
+    "manual_review_reason": "",
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "possible_incident",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": 0.0,
+          "severity_category": "LOW",
+          "notes_uncertainty": "unknown"
+        }
+      }
+    },
+    "severity_score_0_to_100": 0.0,
+    "severity_category": "LOW",
+    "derived_by_python": {
+      "severity_score_0_to_100": 0.0,
+      "severity_category": "LOW",
+      "notes_uncertainty": "unknown"
+    }
+  },
+  {
+    "timestamp": "2026-04-16 13:56:39",
+    "verdict": "FALLBACK: Judge error: Timeout of 600.0s exceeded, last exception: 503 errors resolving generativelanguage.googleapis.com:443: [field:hostname lookup error:address lookup failed for generativelanguage.googleapis.com:443: Could not contact DNS servers]",
+    "montage_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/montage_20260416_134643_478501.jpg",
+    "hero_frame_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/hero_frame_20260416_134643_651493.jpg",
+    "replay_clip_path": "/home/group1/chart-incident-management/chart-incident-management/dashboard/assets/replays/replay_20260416_134643_254700.mp4",
+    "collision_confirmed": false,
+    "severity": "low",
+    "lanes_blocked": 0,
+    "hazards": [
+      "unknown"
+    ],
+    "vehicle_types": [],
+    "incident_type": "ACTIVE_HAZARD",
+    "uncertainty": true,
+    "confidence": 0.0,
+    "yolo_trigger_confidence": 0.46151939034461975,
+    "manual_review_required": false,
+    "manual_review_reason": "",
+    "forensic_report": {
+      "camera": {
+        "id": "unknown",
+        "name": "unknown",
+        "milePost": "unknown",
+        "direction": "unknown"
+      },
+      "incident": {
+        "incident_detected": false,
+        "incident_status": "possible_incident",
+        "confidence_incident": 0.0,
+        "why": "unknown"
+      },
+      "vehicles": {
+        "count_involved": 0,
+        "list": []
+      },
+      "people": {
+        "people_visible_count": 0,
+        "injuries_visible": "unknown",
+        "confidence_injuries": 0.0
+      },
+      "hazards": {
+        "fire_visible": "unknown",
+        "smoke_visible": "unknown",
+        "debris_visible": "unknown",
+        "confidence_hazards": 0.0
+      },
+      "lane_impact": {
+        "lanes_blocked": 0,
+        "blocked_lanes_description": "unknown"
+      },
+      "severity_info": {
+        "severity_inputs": {
+          "vehicle_damage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "lane_blockage": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "injury_visibility": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          },
+          "fire_smoke_hazard": {
+            "score_0_to_4": 0,
+            "weight": 0.25,
+            "evidence": "unknown"
+          }
+        },
+        "severe_gating_triggers": {
+          "vehicle_fire": false,
+          "multiple_vehicle_pileup": false,
+          "visible_injury": false
+        },
+        "derived_by_python": {
+          "severity_score_0_to_100": 0.0,
+          "severity_category": "LOW",
+          "notes_uncertainty": "unknown"
+        }
+      }
+    },
+    "severity_score_0_to_100": 0.0,
+    "severity_category": "LOW",
+    "derived_by_python": {
+      "severity_score_0_to_100": 0.0,
+      "severity_category": "LOW",
+      "notes_uncertainty": "unknown"
+    }
   }
 ]
