@@ -31,19 +31,27 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 MODEL_NAME = "gemini-2.5-flash"
 
+#following paths needed to be replaced with the locations on your local machine where the files are stored. 
+# The RAW_IMAGE_PATH and ANNOTATED_IMAGE_PATH should point to the best accident frame images saved from the YOLO layer, 
+# and the CLIP_VIDEO_PATH should point to the context video clip saved from the YOLO layer. 
+# The GEOJSON_PATH should point to the GeoJSON file containing camera metadata.
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = "/home/group1/chart-incident-management/chart-incident-management/Gemini_layer/YOLO_Output" 
+REPORT_OUTPUT_DIR = "/home/group1/chart-incident-management/chart-incident-management/Gemini_layer/Report_Output"
+
 
 PROMPT_TXT_PATH = os.path.join(SCRIPT_DIR, "prompt.txt")
-OUTPUT_JSON_PATH = os.path.join(SCRIPT_DIR, "incident_report.json")
-OUTPUT_PDF_PATH = os.path.join(SCRIPT_DIR, "incident_report.pdf")
+OUTPUT_JSON_PATH = os.path.join(REPORT_OUTPUT_DIR, "incident_report.json")
+OUTPUT_PDF_PATH = os.path.join(REPORT_OUTPUT_DIR, "incident_report.pdf")
 
-# Outputs from Detection From Video.py
-RAW_IMAGE_PATH = os.path.join(SCRIPT_DIR, "best_accident_frame_raw.jpg")
-ANNOTATED_IMAGE_PATH = os.path.join(SCRIPT_DIR, "best_accident_frame_annotated.jpg")
-CLIP_VIDEO_PATH = os.path.join(SCRIPT_DIR, "accident_context_clip_raw.mp4")
+# Outputs from Detection From Video.py (YOLO Layer)
+RAW_IMAGE_PATH = os.path.join(OUTPUT_DIR, "best_accident_frame_raw.jpg")
+ANNOTATED_IMAGE_PATH = os.path.join(OUTPUT_DIR, "best_accident_frame_annotated.jpg")
+CLIP_VIDEO_PATH = os.path.join(OUTPUT_DIR, "accident_context_clip_raw.mp4")
 
 # GeoJSON containing camera metadata
-GEOJSON_PATH = os.path.join(SCRIPT_DIR, "MDOT_SHA_CHART_Traffic_Cameras.geojson")
+GEOJSON_PATH = "/home/group1/chart-incident-management/chart-incident-management/Gemini_layer/MDOT_SHA_CHART_Traffic_Cameras.geojson"
 
 # Provide the source camera/video URL here.
 # This is used to find the matching camera record in the GeoJSON.

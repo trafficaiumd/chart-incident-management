@@ -1,0 +1,145 @@
+{
+  "camera": {
+    "id": "b300be2300a4005c0055fa36c4235c0a",
+    "name": "RUBY LOCKHART AT ST. JOSEPH'S DR",
+    "description": "RUBY LOCKHART AT ST. JOSEPH'S DR",
+    "publicVideoURL": "https://strmr10.sha.maryland.gov/rtplive/b300be2300a4005c0055fa36c4235c0a/playlist.m3u8",
+    "lat": 38.918093,
+    "lon": -76.84265,
+    "routePrefix": "MD",
+    "routeNumber": "202",
+    "routeSuffix": [],
+    "milePost": "9.13",
+    "direction_of_travel_interpreted": "",
+    "confidence_direction": "",
+    "known_lane_count": "",
+    "weather_notes": "",
+    "weather_live": "sunny",
+    "city": "Lake Arbor",
+    "opStatus": "OK",
+    "commMode": "",
+    "cctvIp": "strmr10.sha.maryland.gov",
+    "cameraCategories": "Wash. DC",
+    "lastCachedDataUpdateTime": ""
+  },
+  "incident": {
+    "incident_detected": true,
+    "incident_status": "active",
+    "incident_types": [
+      "collision"
+    ],
+    "confidence_incident": 1.0,
+    "why": "Two passenger vehicles (a dark grey minivan/station wagon and a silver sedan) have collided. They are stopped in a collision configuration, and smoke is visible from the front of the silver sedan.",
+    "actual_accident_verified_by_gemini": true,
+    "actual_accident_verification_status": "confirmed_by_both",
+    "actual_accident_verification_note": "Both the unannotated image and video clip confirm a true accident. Image note: The image clearly shows two vehicles in a collision position with visible front-end damage to both, including a buckled hood on the silver car. There is also smoke or steam emanating from the front of the silver vehicle, providing strong evidence of a recent accident. Video note: The video clearly shows a black minivan colliding with a silver sedan. Upon impact, the silver sedan's hood crumples, and smoke is visible, indicating a clear accident with damage."
+  },
+  "vehicles": {
+    "count_involved": 2,
+    "confidence_vehicle_count": 1.0,
+    "confidence_vehicle_types": 1.0,
+    "list": []
+  },
+  "people": {
+    "people_visible_count": 0,
+    "injuries_visible": "UNKNOWN",
+    "injury_signs": [],
+    "confidence_injuries": 0.0
+  },
+  "hazards": {
+    "fire_visible": "NO",
+    "smoke_visible": "YES",
+    "debris_visible": "NO",
+    "fluid_spill_possible": "YES",
+    "notes": "Smoke is visible from the front of the silver sedan, indicating a potential engine issue or fluid leak.",
+    "confidence_hazards": 0.9
+  },
+  "lane_impact": {
+    "lanes_affected": [],
+    "shoulder_affected": "NO",
+    "traffic_flow": "stopped",
+    "confidence_lane_impact": 0.8,
+    "lane_impact_notes": "The two vehicles are positioned on a paved surface, effectively blocking at least one path of travel. The exact nature of 'lanes' in a highway context is unclear from the image, but the area of impact is obstructed."
+  },
+  "location_in_view": {
+    "in_frame_region": "center",
+    "distance_bucket": "medium",
+    "relative_road_position": {
+      "lane_id": "UNKNOWN",
+      "shoulder": "UNKNOWN",
+      "median": "UNKNOWN"
+    },
+    "location_statement": "Incident involving two vehicles on a paved roadway with white markings, possibly a parking lot or intersection, within the central frame of view."
+  },
+  "severity_info": {
+    "severity_inputs": {
+      "lane_blockage": {
+        "score_0_to_4": 2,
+        "evidence": "Two vehicles are positioned in a collision blocking at least one traversable path on the paved surface.",
+        "confidence_0_to_1": 0.8
+      },
+      "vehicle_count": {
+        "score_0_to_4": 1,
+        "evidence": "Two vehicles are involved in the collision.",
+        "confidence_0_to_1": 1.0
+      },
+      "vehicle_type": {
+        "score_0_to_4": 0,
+        "evidence": "All involved vehicles are passenger vehicles (minivan/station wagon and sedan).",
+        "confidence_0_to_1": 1.0
+      },
+      "hazards": {
+        "score_0_to_4": 3,
+        "evidence": "Smoke is clearly visible emanating from the front of the silver sedan.",
+        "confidence_0_to_1": 1.0
+      },
+      "vehicle_orientation": {
+        "score_0_to_4": 1,
+        "evidence": "Both vehicles are upright but are angled relative to each other and the general direction of travel indicated by road markings.",
+        "confidence_0_to_1": 0.9
+      },
+      "damage_deformation": {
+        "score_0_to_4": 2,
+        "evidence": "The silver sedan has significant crumpling and deformation of the front hood. The dark grey vehicle also shows impact damage to its front right side. No cabin deformation is visible.",
+        "confidence_0_to_1": 0.9
+      },
+      "debris_extent": {
+        "score_0_to_4": 0,
+        "evidence": "No visible debris on the roadway.",
+        "confidence_0_to_1": 1.0
+      }
+    },
+    "severe_gating_triggers": {
+      "fire_visible": "NO",
+      "rollover_confirmed": "NO",
+      "major_structural_collapse": "NO",
+      "full_roadway_blocked": "NO",
+      "large_debris_field_across_multiple_lanes": "NO"
+    },
+    "unknown_flags": {
+      "critical_unknown_count": 0,
+      "should_return_unknown": "NO"
+    },
+    "derived_by_python": {
+      "severity_score_0_to_100": null,
+      "severity_category": null,
+      "notes_uncertainty": ""
+    }
+  },
+  "media_inputs": {
+    "unannotated_image_path": "/home/group1/chart-incident-management/chart-incident-management/Final Detection From Video Files/accident_run_video_3xioiu7d/best_accident_frame_raw.jpg",
+    "annotated_image_path": "/home/group1/chart-incident-management/chart-incident-management/Final Detection From Video Files/accident_run_video_3xioiu7d/best_accident_frame_annotated.jpg",
+    "video_path": "/home/group1/chart-incident-management/chart-incident-management/Final Detection From Video Files/accident_run_video_3xioiu7d/accident_context_clip_raw.mp4",
+    "source_video_url": "https://strmr10.sha.maryland.gov/rtplive/b300be2300a4005c0055fa36c4235c0a/playlist.m3u8"
+  },
+  "verification_details": {
+    "image_verification": {
+      "confirmed_accident": true,
+      "note": "The image clearly shows two vehicles in a collision position with visible front-end damage to both, including a buckled hood on the silver car. There is also smoke or steam emanating from the front of the silver vehicle, providing strong evidence of a recent accident."
+    },
+    "video_verification": {
+      "confirmed_accident": true,
+      "note": "The video clearly shows a black minivan colliding with a silver sedan. Upon impact, the silver sedan's hood crumples, and smoke is visible, indicating a clear accident with damage."
+    }
+  }
+}
