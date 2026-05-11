@@ -138,7 +138,7 @@ Guidance:
 - fire_visible = YES if fire is clearly visible
 - rollover_confirmed = YES if vehicle is on side or roof
 - major_structural_collapse = YES if severe crushing / structural collapse is clearly visible
-- full_roadway_blocked = YES if no passable lane is visible
+- full_roadway_blocked = YES if no passable lane is visible, only when you are extremely confident. If the camera angle or frame is not good enough to see all the lanes, do not trigger this.
 - large_debris_field_across_multiple_lanes = YES if debris clearly extends across multiple lanes
 
 ==================================================

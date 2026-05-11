@@ -16,6 +16,7 @@ UPLOAD_DIR = os.path.join(APP_DIR, "dashboard_uploads")
 RUNS_DIR = os.path.join(APP_DIR, "dashboard_runs")
 PROJECT_LOGO_PATH = os.path.join(APP_DIR, "final logo png.png")
 UMD_LOGO_PATH = os.path.join(APP_DIR, "umd_logo.png")
+SELECTED_CAMERAS_PATH = os.path.join(APP_DIR, "SelectedCameras.json")
 WORKER_SCRIPT_PATH = os.path.join(APP_DIR, "dashboard_worker.py")
 PROJECT_TITLE = "UMD CHART Incident Detection and Reporting Dashboard"
 ALLOWED_VIDEO_EXTENSIONS = {"mp4", "mov", "avi", "mkv", "m4v", "wmv", "webm"}
@@ -36,6 +37,32 @@ def now_ts() -> float:
 def allowed_video_file(filename: str) -> bool:
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_VIDEO_EXTENSIONS
 
+def load_selected_cameras() -> List[Dict[str, str]]:
+    if not os.path.exists(SELECTED_CAMERAS_PATH):
+        return []
+
+    try:
+        with open(SELECTED_CAMERAS_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if not isinstance(data, list):
+            return []
+
+        cleaned = []
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            name = str(item.get("name", "")).strip()
+            url = str(item.get("URL", "")).strip()
+            cam_id = str(item.get("id", "")).strip()
+            if name and url:
+                cleaned.append({
+                    "name": name,
+                    "URL": url,
+                    "id": cam_id,
+                })
+        return cleaned
+    except Exception:
+        return []
 
 def run_dir_for(job_id: str) -> str:
     return os.path.join(RUNS_DIR, f"job_{job_id}")
@@ -323,13 +350,21 @@ HOME_TEMPLATE = """
       <div class="card">
         <h2>Live Stream Analysis</h2>
         <form action="{{ url_for('start_live_job') }}" method="post">
-          <label>CHART .m3u8 stream URL</label>
-          <input type="text" name="stream_url" placeholder="https://.../playlist.m3u8" required>
-          <div class="help">The dashboard extracts the camera ID from the .m3u8 URL and looks up the camera automatically.</div>
+          <label>Select a camera</label>
+          <select name="selected_camera_url" required style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px;">
+            <option value="">Choose one</option>
+            {% for cam in selected_cameras %}
+              <option value="{{ cam.URL }}">{{ cam.name }}</option>
+            {% endfor %}
+          </select>
+          <div class="help">These are the selected high-quality cameras from SelectedCameras.json.</div>
+          <label style="margin-top:12px;">Or paste a CHART .m3u8 stream URL manually</label>
+          <input type="text" name="stream_url" placeholder="https://.../playlist.m3u8">
+          <div class="help">If both are filled, the manually pasted URL will be used.</div>
           <button type="submit">Start Live Stream Analysis</button>
         </form>
       </div>
-    </div>
+    
 
     <div class="note">
       <strong>How it works:</strong> once a job starts, a monitoring page opens with a progress bar, terminal-style log panel, and preview screen showing the latest detection frame.
@@ -561,6 +596,7 @@ def home():
         title=PROJECT_TITLE,
         project_logo_exists=os.path.exists(backend.core.LOGO_PATH),
         umd_logo_exists=os.path.exists(UMD_LOGO_PATH),
+        selected_cameras=load_selected_cameras(),
     )
 
 
@@ -601,9 +637,13 @@ def start_recorded_job():
 
 @app.route("/start-live", methods=["POST"])
 def start_live_job():
-    stream_url = request.form.get("stream_url", "").strip()
+    manual_stream_url = request.form.get("stream_url", "").strip()
+    selected_camera_url = request.form.get("selected_camera_url", "").strip()
+
+    stream_url = manual_stream_url if manual_stream_url else selected_camera_url
+
     if not stream_url:
-        return "Stream URL is required.", 400
+        return "Please select a camera or enter a stream URL.", 400
 
     state = create_job("live", source_value=stream_url)
     job_id = state["job_id"]
